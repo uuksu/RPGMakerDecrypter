@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMakerDecrypter.Decrypter", "RPGMakerDecrypter.Decrypter\RPGMakerDecrypter.Decrypter.csproj", "{BAEEE442-1888-4340-94BE-FE743C696AE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMakerDecrypter.Tests", "RPGMakerDecrypter.Tests\RPGMakerDecrypter.Tests.csproj", "{CDFB3E01-DE4D-4FC2-8369-21D9F70595C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAEEE442-1888-4340-94BE-FE743C696AE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAEEE442-1888-4340-94BE-FE743C696AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAEEE442-1888-4340-94BE-FE743C696AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAEEE442-1888-4340-94BE-FE743C696AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDFB3E01-DE4D-4FC2-8369-21D9F70595C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDFB3E01-DE4D-4FC2-8369-21D9F70595C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDFB3E01-DE4D-4FC2-8369-21D9F70595C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDFB3E01-DE4D-4FC2-8369-21D9F70595C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
