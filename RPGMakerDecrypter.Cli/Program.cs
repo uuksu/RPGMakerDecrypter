@@ -11,8 +11,9 @@ namespace RPGMakerDecrypter.Cli
     {
         static void Main(string[] args)
         {
-            RGSSADv1 rgssad = new RGSSADv1("Game.rgssad");
-            Console.ReadKey();
+            RGSSADv1 rgssad = new RGSSADv1(Constants.RpgMakerXpArchiveName);
+            rgssad.ExtractAllFiles("Output", true);
+            //Console.ReadKey();
         }
     }
 }

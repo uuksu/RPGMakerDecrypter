@@ -76,5 +76,58 @@ namespace RPGMakerDecrypter.Tests
 
             FileHelpers.Cleanup();
         }
+
+        [TestMethod]
+        public void CorrectFileNamesAreReadFromVxArchive()
+        {
+            FileHelpers.CopyArchives();
+
+            RGSSADv1 rgssad = new RGSSADv1(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxArchiveName));
+
+            // Verified with Falos RPG Maker Decrypter
+            Assert.AreEqual(@"Data\Actors.rvdata", rgssad.ArchivedFiles[0].Name);
+            Assert.AreEqual(@"Data\Animations.rvdata", rgssad.ArchivedFiles[1].Name);
+            Assert.AreEqual(@"Data\Areas.rvdata", rgssad.ArchivedFiles[2].Name);
+
+            rgssad.Dispose();
+
+            FileHelpers.Cleanup();
+        }
+
+        [TestMethod]
+        public void CorrectOffsetsAreReadFromVxArchive()
+        {
+            FileHelpers.CopyArchives();
+
+            RGSSADv1 rgssad = new RGSSADv1(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxArchiveName));
+
+            // Verified with Falos RPG Maker Decrypter
+            Assert.AreEqual(34, rgssad.ArchivedFiles[0].Offset);
+            Assert.AreEqual(10951, rgssad.ArchivedFiles[1].Offset);
+            Assert.AreEqual(139280, rgssad.ArchivedFiles[2].Offset);
+
+            rgssad.Dispose();
+
+            FileHelpers.Cleanup();
+        }
+
+        [TestMethod]
+        public void CorrectSizesAreReadFromVxArchive()
+        {
+            FileHelpers.CopyArchives();
+
+            RGSSADv1 rgssad = new RGSSADv1(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxArchiveName));
+
+            // Verified with Falos RPG Maker Decrypter
+            Assert.AreEqual(10887, rgssad.ArchivedFiles[0].Size);
+            Assert.AreEqual(128304, rgssad.ArchivedFiles[1].Size);
+            Assert.AreEqual(4, rgssad.ArchivedFiles[2].Size);
+
+            rgssad.Dispose();
+
+            FileHelpers.Cleanup();
+        }
+
+
     }
 }

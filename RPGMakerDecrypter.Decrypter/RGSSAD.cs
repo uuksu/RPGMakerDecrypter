@@ -13,21 +13,21 @@ namespace RPGMakerDecrypter.Decrypter
     /// </summary>
     public class RGSSAD : IDisposable
     {
-        protected readonly string Path;
+        protected readonly string FilePath;
         protected readonly BinaryReader BinaryReader;
 
         public List<ArchivedFile> ArchivedFiles { get; set; }
 
-        public RGSSAD(string path)
+        public RGSSAD(string filePath)
         {
-            this.Path = path;
-            BinaryReader = new BinaryReader(new FileStream(path, FileMode.Open));
+            this.FilePath = filePath;
+            BinaryReader = new BinaryReader(new FileStream(filePath, FileMode.Open));
         }
 
         /// <summary>
         /// Gets the version of RGSSAD.
         /// </summary>
-        /// <param name="path">Path to RGSSAD archive</param>
+        /// <param name="path">FilePath to RGSSAD archive</param>
         /// <returns></returns>
         /// <exception cref="InvalidArchiveException">
         /// Archive is in invalid format.

@@ -14,6 +14,11 @@ namespace RPGMakerDecrypter.Tests
 
         public static void CopyArchives()
         {
+            if (Directory.Exists(TempDirectoryPath))
+            {
+                Directory.Delete(TempDirectoryPath, true);
+            }
+
             Directory.CreateDirectory(TempDirectoryPath);
 
             File.Copy(Path.Combine("../../EncryptedArchives", Constants.RpgMakerXpArchiveName), Path.Combine(TempDirectoryPath, Constants.RpgMakerXpArchiveName));
