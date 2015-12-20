@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMakerDecrypter.Decrypter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMakerDecrypter.Tests", "RPGMakerDecrypter.Tests\RPGMakerDecrypter.Tests.csproj", "{CDFB3E01-DE4D-4FC2-8369-21D9F70595C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMakerDecrypter.Cli", "RPGMakerDecrypter.Cli\RPGMakerDecrypter.Cli.csproj", "{D03BC34B-EEB1-4A26-B4FB-190CE153E06A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CDFB3E01-DE4D-4FC2-8369-21D9F70595C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDFB3E01-DE4D-4FC2-8369-21D9F70595C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDFB3E01-DE4D-4FC2-8369-21D9F70595C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D03BC34B-EEB1-4A26-B4FB-190CE153E06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03BC34B-EEB1-4A26-B4FB-190CE153E06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03BC34B-EEB1-4A26-B4FB-190CE153E06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03BC34B-EEB1-4A26-B4FB-190CE153E06A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

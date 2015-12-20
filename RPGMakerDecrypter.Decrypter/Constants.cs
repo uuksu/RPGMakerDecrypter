@@ -13,5 +13,7 @@ namespace RPGMakerDecrypter.Decrypter
         public static readonly string RpgMakerVxAceArchiveName = "Game.rgss3a";
 
         public static readonly string RGSSADHeader = "RGSSAD";
+
+        public static readonly int[] SupportedRGSSVersions = {1, 3};
     }
 }
