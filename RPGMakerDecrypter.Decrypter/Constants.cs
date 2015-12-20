@@ -14,6 +14,11 @@ namespace RPGMakerDecrypter.Decrypter
 
         public static readonly string RGSSADHeader = "RGSSAD";
 
-        public static readonly int[] SupportedRGSSVersions = {1, 3};
+        public const int RGASSDv1 = 1;
+        public const int RGASSDv3 = 3;
+
+        public static readonly int[] SupportedRGSSVersions = { RGASSDv1, RGASSDv3 };
+
+        public static readonly uint RGASSADv1Key = 0xDEADCAFE;
     }
 }

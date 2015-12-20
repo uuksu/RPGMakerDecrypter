@@ -11,8 +11,7 @@ namespace RPGMakerDecrypter.Cli
     {
         static void Main(string[] args)
         {
-            RGSSAD rgssad = new RGSSAD("Game.rgssad");
-            Console.WriteLine(rgssad.GetVersion());
+            RGSSADv1 rgssad = new RGSSADv1("Game.rgssad");
             Console.ReadKey();
         }
     }

@@ -9,114 +9,78 @@ namespace RPGMakerDecrypter.Tests
     [TestClass]
     public class BinaryUtilsTests
     {
-        private static string tempDirectoryPath = "Temp";
-
-        private void CopyArchives()
-        {
-            Directory.CreateDirectory(tempDirectoryPath);
-
-            File.Copy(Path.Combine("../../EncryptedArchives", Constants.RpgMakerXpArchiveName), Path.Combine(tempDirectoryPath, Constants.RpgMakerXpArchiveName));
-            File.Copy(Path.Combine("../../EncryptedArchives", Constants.RpgMakerVxArchiveName), Path.Combine(tempDirectoryPath, Constants.RpgMakerVxArchiveName));
-            File.Copy(Path.Combine("../../EncryptedArchives", Constants.RpgMakerVxAceArchiveName), Path.Combine(tempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
-        }
-
-        private void Cleanup()
-        {
-            File.Delete(Path.Combine(tempDirectoryPath, Constants.RpgMakerXpArchiveName));
-            File.Delete(Path.Combine(tempDirectoryPath, Constants.RpgMakerVxArchiveName));
-            File.Delete(Path.Combine(tempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
-
-            Directory.Delete(tempDirectoryPath);
-        }
-
         [TestMethod]
         public void RPGMakerXpArchiveVersionIsOne()
         {
-            CopyArchives();
+            FileHelpers.CopyArchives();
 
-            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(tempDirectoryPath, Constants.RpgMakerXpArchiveName), FileMode.Open)))
+            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerXpArchiveName), FileMode.Open)))
             {
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
                 byte version = binaryReader.ReadByte();
 
-                Assert.AreEqual(version, 1);
+                Assert.AreEqual(1, version);
             }
 
-            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(tempDirectoryPath, Constants.RpgMakerVxArchiveName), FileMode.Open)))
-            {
-                string s = BinaryUtils.ReadCString(binaryReader, 7);
-                byte version = binaryReader.ReadByte();
-
-                Assert.AreEqual(version, 1);
-            }
-
-            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(tempDirectoryPath, Constants.RpgMakerVxAceArchiveName), FileMode.Open)))
-            {
-                string s = BinaryUtils.ReadCString(binaryReader, 7);
-                byte version = binaryReader.ReadByte();
-
-                Assert.AreEqual(version, 3);
-            }
-
-            Cleanup();
+            FileHelpers.Cleanup();
         }
 
         [TestMethod]
         public void RPGMakerVxArchiveVersionIsOne()
         {
-            CopyArchives();
+            FileHelpers.CopyArchives();
 
-            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(tempDirectoryPath, Constants.RpgMakerVxArchiveName), FileMode.Open)))
+            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxArchiveName), FileMode.Open)))
             {
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
                 byte version = binaryReader.ReadByte();
 
-                Assert.AreEqual(version, 1);
+                Assert.AreEqual(1, version);
             }
 
-            Cleanup();
+            FileHelpers.Cleanup();
         }
 
         [TestMethod]
         public void RPGMakerVxAceArchiveVersionIsThree()
         {
-            CopyArchives();
+            FileHelpers.CopyArchives();
 
-            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(tempDirectoryPath, Constants.RpgMakerVxAceArchiveName), FileMode.Open)))
+            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName), FileMode.Open)))
             {
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
                 byte version = binaryReader.ReadByte();
 
-                Assert.AreEqual(version, 3);
+                Assert.AreEqual(3, version);
             }
 
-            Cleanup();
+            FileHelpers.Cleanup();
         }
 
         [TestMethod]
         public void ReadCStringReturnsCorrectHeaderForArchives()
         {
-            CopyArchives();
+            FileHelpers.CopyArchives();
 
-            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(tempDirectoryPath, Constants.RpgMakerXpArchiveName), FileMode.Open)))
+            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerXpArchiveName), FileMode.Open)))
             {
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
-                Assert.AreEqual(s, Constants.RGSSADHeader);
+                Assert.AreEqual(Constants.RGSSADHeader, s);
             }
 
-            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(tempDirectoryPath, Constants.RpgMakerVxArchiveName), FileMode.Open)))
+            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxArchiveName), FileMode.Open)))
             {
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
-                Assert.AreEqual(s, Constants.RGSSADHeader);
+                Assert.AreEqual(Constants.RGSSADHeader, s);
             }
 
-            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(tempDirectoryPath, Constants.RpgMakerVxAceArchiveName), FileMode.Open)))
+            using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName), FileMode.Open)))
             {
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
-                Assert.AreEqual(s, Constants.RGSSADHeader);
+                Assert.AreEqual(Constants.RGSSADHeader, s);
             }
 
-            Cleanup();
+            FileHelpers.Cleanup();
         }
 
 
