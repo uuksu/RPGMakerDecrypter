@@ -53,6 +53,7 @@
     <Compile Include="BinaryUtilsTests.cs" />
     <Compile Include="FileHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RGSSADv3Tests.cs" />
     <Compile Include="RGSSADv1Tests.cs" />
   </ItemGroup>
   <ItemGroup>

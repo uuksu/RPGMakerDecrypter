@@ -78,6 +78,23 @@ namespace RPGMakerDecrypter.Tests
         }
 
         [TestMethod]
+        public void CorrectKeysAreReadFromXpArchive()
+        {
+            FileHelpers.CopyArchives();
+
+            RGSSADv1 rgssad = new RGSSADv1(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerXpArchiveName));
+
+            // Verified with Falos RPG Maker Decrypter
+            Assert.AreEqual((uint)0x7B7448AE, rgssad.ArchivedFiles[0].Key);
+            Assert.AreEqual((uint)0x366D564E, rgssad.ArchivedFiles[1].Key);
+            Assert.AreEqual((uint)0x222699FE, rgssad.ArchivedFiles[2].Key);
+
+            rgssad.Dispose();
+
+            FileHelpers.Cleanup();
+        }
+
+        [TestMethod]
         public void CorrectFileNamesAreReadFromVxArchive()
         {
             FileHelpers.CopyArchives();
@@ -122,6 +139,23 @@ namespace RPGMakerDecrypter.Tests
             Assert.AreEqual(10887, rgssad.ArchivedFiles[0].Size);
             Assert.AreEqual(128304, rgssad.ArchivedFiles[1].Size);
             Assert.AreEqual(4, rgssad.ArchivedFiles[2].Size);
+
+            rgssad.Dispose();
+
+            FileHelpers.Cleanup();
+        }
+
+        [TestMethod]
+        public void CorrectKeysAreReadFromVxArchive()
+        {
+            FileHelpers.CopyArchives();
+
+            RGSSADv1 rgssad = new RGSSADv1(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxArchiveName));
+
+            // Verified with Falos RPG Maker Decrypter
+            Assert.AreEqual((uint)0x7B7448AE, rgssad.ArchivedFiles[0].Key);
+            Assert.AreEqual((uint)0x366D564E, rgssad.ArchivedFiles[1].Key);
+            Assert.AreEqual((uint)0x04E0F16D, rgssad.ArchivedFiles[2].Key);
 
             rgssad.Dispose();
 

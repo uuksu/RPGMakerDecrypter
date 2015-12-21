@@ -9,15 +9,15 @@ using RPGMakerDecrypter.Decrypter.Exceptions;
 namespace RPGMakerDecrypter.Decrypter
 {
     /// <summary>
-    /// Represents RGSSAD format used in RPG Maker XP and VX.
+    /// Represents RGSSAD format used in RPG Maker VX Ace.
     /// </summary>
-    public class RGSSADv1 : RGSSAD
+    public class RGSSADv3 : RGSSAD
     {
-        public RGSSADv1(string filePath) : base(filePath)
+        public RGSSADv3(string filePath) : base(filePath)
         {
             int version = GetVersion();
 
-            if (version != Constants.RGASSDv1)
+            if (version != Constants.RGASSDv3)
             {
                 throw new InvalidArchiveException("Archive is in invalid format.");
             }
@@ -30,61 +30,65 @@ namespace RPGMakerDecrypter.Decrypter
         /// </summary>
         private void ReadRGSSAD()
         {
-            uint key = Constants.RGASSADv1Key;
+            BinaryReader.BaseStream.Seek(8, SeekOrigin.Begin);
+
+            uint key = (uint)BinaryReader.ReadInt32();
+            key *= 9;
+            key += 3;
 
             ArchivedFiles = new List<ArchivedFile>();
 
-            BinaryReader.BaseStream.Seek(8, SeekOrigin.Begin);
             while (true)
             {
                 ArchivedFile archivedFile = new ArchivedFile();
+                archivedFile.Offset = DecryptInteger(BinaryReader.ReadInt32(), key);
+                archivedFile.Size = DecryptInteger(BinaryReader.ReadInt32(), key);
+                archivedFile.Key = (uint)DecryptInteger(BinaryReader.ReadInt32(), key);
 
-                int length = DecryptInteger(BinaryReader.ReadInt32(), ref key);
-                archivedFile.Name = DecryptFilename(BinaryReader.ReadBytes(length), ref key);
-                archivedFile.Size = DecryptInteger(BinaryReader.ReadInt32(), ref key);
-                archivedFile.Offset = BinaryReader.BaseStream.Position;
-                archivedFile.Key = key;
-                ArchivedFiles.Add(archivedFile);
+                int length = DecryptInteger(BinaryReader.ReadInt32(), key);
 
-                BinaryReader.BaseStream.Seek(archivedFile.Size, SeekOrigin.Current);
-                if (BinaryReader.BaseStream.Position == BinaryReader.BaseStream.Length)
+                if (archivedFile.Offset == 0)
+                {
                     break;
+                }
+
+                archivedFile.Name = DecryptFilename(BinaryReader.ReadBytes(length), key);
+
+                ArchivedFiles.Add(archivedFile);
             }
         }
+
         /// <summary>
         /// Decrypts integer from given value.
-        /// Proceeds key forward by calculating new value.
         /// </summary>
         /// <param name="value">Encrypted value</param>
         /// <param name="key">Key</param>
         /// <returns>Decrypted integer</returns>
-        private int DecryptInteger(int value, ref uint key)
+        private int DecryptInteger(int value, uint key)
         {
             long result = value ^ key;
-
-            key *= 7;
-            key += 3;
-
             return (int)result;
         }
 
         /// <summary>
         /// Decrypts file name from given bytes using given key.
-        /// Proceeds key forward by calculating new value.
         /// </summary>
         /// <param name="encryptedName">Encrypted filename</param>
         /// <param name="key">Key</param>
         /// <returns>Decrypted filename</returns>
-        private string DecryptFilename(byte[] encryptedName, ref uint key)
+        private string DecryptFilename(byte[] encryptedName, uint key)
         {
             byte[] decryptedName = new byte[encryptedName.Length];
 
+            byte[] keyBytes = BitConverter.GetBytes(key);
+
+            int j = 0;
             for (int i = 0; i <= encryptedName.Length - 1; i++)
             {
-                decryptedName[i] = (byte)(encryptedName[i] ^ (key & 0xff));
-
-                key *= 7;
-                key += 3;
+                if (j == 4)
+                    j = 0;
+                decryptedName[i] = (byte)(encryptedName[i] ^ keyBytes[j]);
+                j += 1;
             }
 
             string result = Encoding.UTF8.GetString(decryptedName);
