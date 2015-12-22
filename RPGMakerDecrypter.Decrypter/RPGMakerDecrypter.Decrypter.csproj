@@ -45,10 +45,12 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Exceptions\InvalidArchiveException.cs" />
     <Compile Include="Exceptions\UnsupportedArchiveException.cs" />
+    <Compile Include="ProjectGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RGSSAD.cs" />
     <Compile Include="RGSSADv1.cs" />
     <Compile Include="RGSSADv3.cs" />
+    <Compile Include="RPGMakerVersion.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

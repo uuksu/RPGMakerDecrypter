@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPGMakerDecrypter.Decrypter.Exceptions
 {
-    class UnsupportedArchiveException : Exception
+    public class UnsupportedArchiveException : Exception
     {
         public UnsupportedArchiveException(string message) : base(message)
         {
