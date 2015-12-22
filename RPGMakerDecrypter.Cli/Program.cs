@@ -25,7 +25,7 @@ namespace RPGMakerDecrypter.Cli
 
             if (_commandLineOptions.InputPaths.Count == 0)
             {
-                Console.WriteLine("Please provide input path.");
+                Console.WriteLine(_commandLineOptions.GetUsage());
                 Environment.Exit(1);
             }
 
@@ -37,6 +37,18 @@ namespace RPGMakerDecrypter.Cli
                 Environment.Exit(1);
             }
 
+            string outputDirectoryPath;
+
+            if (_commandLineOptions.OutputDirectoryPath != null)
+            {
+                outputDirectoryPath = _commandLineOptions.OutputDirectoryPath;
+            }
+            else
+            {
+                FileInfo fi = new FileInfo(_commandLineOptions.InputPaths.First());
+                outputDirectoryPath = fi.DirectoryName;
+            }
+
             try
             {
                 switch (version)
@@ -44,11 +56,11 @@ namespace RPGMakerDecrypter.Cli
                     case RPGMakerVersion.Xp:
                     case RPGMakerVersion.Vx:
                         RGSSADv1 rgssadv1 = new RGSSADv1(_commandLineOptions.InputPaths.First());
-                        rgssadv1.ExtractAllFiles(_commandLineOptions.OutputDirectoryPath);
+                        rgssadv1.ExtractAllFiles(outputDirectoryPath);
                         break;
                     case RPGMakerVersion.VxAce:
                         RGSSADv3 rgssadv2 = new RGSSADv3(_commandLineOptions.InputPaths.First());
-                        rgssadv2.ExtractAllFiles(_commandLineOptions.OutputDirectoryPath);
+                        rgssadv2.ExtractAllFiles(outputDirectoryPath);
                         break;
                 }
             }
@@ -64,14 +76,14 @@ namespace RPGMakerDecrypter.Cli
             }
             catch (Exception)
             {
-                Console.WriteLine("Something went wrong with reading or extractio. Archive is likely invalid or corrupted.");
+                Console.WriteLine("Something went wrong with reading or extraction. Archive is likely invalid or corrupted.");
                 Environment.Exit(1);
             }
 
 
             if (_commandLineOptions.GenerateProjectFile)
             {
-                ProjectGenerator.GenerateProject(version, _commandLineOptions.OutputDirectoryPath);
+                ProjectGenerator.GenerateProject(version, outputDirectoryPath);
             }
         }
     }

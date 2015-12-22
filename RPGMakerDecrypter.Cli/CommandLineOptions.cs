@@ -15,7 +15,7 @@ namespace RPGMakerDecrypter.Cli
         [ValueList(typeof(List<string>), MaximumElements = 1)]
         public IList<string> InputPaths { get; set; }
 
-        [Option('o', "output", Required = true, HelpText = "Output directory path.")]
+        [Option('o', "output", Required = false, HelpText = "Optional output directory path.")]
         public string OutputDirectoryPath { get; set; }
 
         [Option('p', "project-file", Required = false, HelpText = "If set to true then generates project file.")]
