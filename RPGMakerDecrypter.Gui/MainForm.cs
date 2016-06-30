@@ -210,5 +210,11 @@ namespace RPGMakerDecrypter.Gui
             currentArchive?.Dispose();
             Environment.Exit(0);
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.ShowDialog();
+        }
     }
 }
