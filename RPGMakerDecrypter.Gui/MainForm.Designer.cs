@@ -33,9 +33,6 @@
             this.openRGSSADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.allToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,6 +43,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.fileNameTextBox = new System.Windows.Forms.TextBox();
             this.generateProjectCheckBox = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.sizeTextBox = new System.Windows.Forms.TextBox();
+            this.extractFileButton = new System.Windows.Forms.Button();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -58,7 +59,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.extractToolStripMenuItem});
+            this.extractToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(473, 24);
@@ -86,35 +88,15 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // extractToolStripMenuItem
             // 
-            this.extractToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.selectedFileToolStripMenuItem,
-            this.allToolStripMenuItem,
-            this.allToToolStripMenuItem});
             this.extractToolStripMenuItem.Enabled = false;
             this.extractToolStripMenuItem.Name = "extractToolStripMenuItem";
-            this.extractToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.extractToolStripMenuItem.Text = "Extract";
-            // 
-            // selectedFileToolStripMenuItem
-            // 
-            this.selectedFileToolStripMenuItem.Name = "selectedFileToolStripMenuItem";
-            this.selectedFileToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.selectedFileToolStripMenuItem.Text = "Selected File";
-            // 
-            // allToolStripMenuItem
-            // 
-            this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-            this.allToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.allToolStripMenuItem.Text = "All";
-            // 
-            // allToToolStripMenuItem
-            // 
-            this.allToToolStripMenuItem.Name = "allToToolStripMenuItem";
-            this.allToToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.allToToolStripMenuItem.Text = "All To..";
+            this.extractToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.extractToolStripMenuItem.Text = "Extract All...";
+            this.extractToolStripMenuItem.Click += new System.EventHandler(this.extractToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -144,18 +126,20 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 406F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(473, 406);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // archivedFilesListBox
             // 
             this.archivedFilesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.archivedFilesListBox.Enabled = false;
             this.archivedFilesListBox.FormattingEnabled = true;
             this.archivedFilesListBox.Location = new System.Drawing.Point(3, 3);
             this.archivedFilesListBox.Name = "archivedFilesListBox";
             this.archivedFilesListBox.Size = new System.Drawing.Size(230, 400);
             this.archivedFilesListBox.TabIndex = 0;
+            this.archivedFilesListBox.SelectedIndexChanged += new System.EventHandler(this.archivedFilesListBox_SelectedIndexChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -167,7 +151,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(231, 400);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
@@ -186,12 +170,17 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.sizeTextBox, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.fileNameTextBox, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.extractFileButton, 0, 4);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 26);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowCount = 5;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
@@ -220,12 +209,48 @@
             // generateProjectCheckBox
             // 
             this.generateProjectCheckBox.AutoSize = true;
-            this.generateProjectCheckBox.Location = new System.Drawing.Point(110, 4);
+            this.generateProjectCheckBox.Location = new System.Drawing.Point(192, 4);
             this.generateProjectCheckBox.Name = "generateProjectCheckBox";
             this.generateProjectCheckBox.Size = new System.Drawing.Size(106, 17);
             this.generateProjectCheckBox.TabIndex = 3;
             this.generateProjectCheckBox.Text = "Generate Project";
             this.generateProjectCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 53);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Size (bytes):";
+            // 
+            // sizeTextBox
+            // 
+            this.sizeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sizeTextBox.Location = new System.Drawing.Point(3, 75);
+            this.sizeTextBox.Name = "sizeTextBox";
+            this.sizeTextBox.ReadOnly = true;
+            this.sizeTextBox.Size = new System.Drawing.Size(213, 20);
+            this.sizeTextBox.TabIndex = 3;
+            // 
+            // extractFileButton
+            // 
+            this.extractFileButton.Enabled = false;
+            this.extractFileButton.Location = new System.Drawing.Point(3, 103);
+            this.extractFileButton.Name = "extractFileButton";
+            this.extractFileButton.Size = new System.Drawing.Size(75, 23);
+            this.extractFileButton.TabIndex = 4;
+            this.extractFileButton.Text = "Extract";
+            this.extractFileButton.UseVisualStyleBackColor = true;
+            this.extractFileButton.Click += new System.EventHandler(this.extractFileButton_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.aboutToolStripMenuItem.Text = "About...";
             // 
             // MainForm
             // 
@@ -260,19 +285,20 @@
         private System.Windows.Forms.ToolStripMenuItem openRGSSADToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extractToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem selectedFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ListBox archivedFilesListBox;
-        private System.Windows.Forms.ToolStripMenuItem allToToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox fileNameTextBox;
         private System.Windows.Forms.CheckBox generateProjectCheckBox;
+        private System.Windows.Forms.TextBox sizeTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button extractFileButton;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

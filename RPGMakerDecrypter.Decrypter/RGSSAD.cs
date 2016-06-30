@@ -82,24 +82,35 @@ namespace RPGMakerDecrypter.Decrypter
         /// </summary>
         /// <param name="archivedFile">Archived file</param>
         /// <param name="outputDirectoryPath">Output directory path</param>
-        /// <param name="overrideExisting">if set to true, overrides existing files</param>
+        /// <param name="overrideExisting">If set to true, overrides existing files</param>
+        /// <param name="createDirectory">If set to true, creates directory specified in encrypted file name</param>
         /// <exception cref="System.Exception">Invalid file path. Archive could be corrupted.</exception>
-        public void ExtractFile(ArchivedFile archivedFile, string outputDirectoryPath, bool overrideExisting = false)
+        public void ExtractFile(ArchivedFile archivedFile, string outputDirectoryPath, bool overrideExisting = false, bool createDirectory = true)
         {
-            // Create output directory if it does not exist
-            string directoryPath = Path.GetDirectoryName(archivedFile.Name);
+            string outputPath;
 
-            if (directoryPath == null)
+            if (createDirectory)
             {
-                throw new Exception("Invalid file path. Archive could be corrupted.");
-            }
+                // Create output directory if it does not exist
+                string directoryPath = Path.GetDirectoryName(archivedFile.Name);
 
-            if (!Directory.Exists(Path.Combine(outputDirectoryPath, directoryPath)))
+                if (directoryPath == null)
+                {
+                    throw new Exception("Invalid file path. Archive could be corrupted.");
+                }
+
+                if (!Directory.Exists(Path.Combine(outputDirectoryPath, directoryPath)))
+                {
+                    Directory.CreateDirectory(Path.Combine(outputDirectoryPath, directoryPath));
+                }
+
+                outputPath = Path.Combine(outputDirectoryPath, archivedFile.Name);
+            }
+            else
             {
-                Directory.CreateDirectory(Path.Combine(outputDirectoryPath, directoryPath));
+                string fileName = archivedFile.Name.Split('\\').Last();
+                outputPath = Path.Combine(outputDirectoryPath, fileName);
             }
-
-            string outputPath = Path.Combine(outputDirectoryPath, archivedFile.Name);
 
             // Override existing file flag is set to true
             if (File.Exists(outputPath) && !overrideExisting)
