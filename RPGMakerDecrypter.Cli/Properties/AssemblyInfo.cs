@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("RPGMakerDecrypter.Cli")]
-[assembly: AssemblyCopyright("Copyright © Mikko Uuksulainen 2015")]
+[assembly: AssemblyCopyright("Copyright © Mikko Uuksulainen 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

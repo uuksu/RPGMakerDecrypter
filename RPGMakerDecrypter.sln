@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMakerDecrypter.Decrypter", "RPGMakerDecrypter.Decrypter\RPGMakerDecrypter.Decrypter.csproj", "{BAEEE442-1888-4340-94BE-FE743C696AE1}"
 EndProject
@@ -10,6 +10,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMakerDecrypter.Cli", "RPGMakerDecrypter.Cli\RPGMakerDecrypter.Cli.csproj", "{D03BC34B-EEB1-4A26-B4FB-190CE153E06A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMakerDecrypter.Gui", "RPGMakerDecrypter.Gui\RPGMakerDecrypter.Gui.csproj", "{3BAA8C8A-0AF9-483B-9581-BCE2BFD44262}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{48D60675-A06B-4683-99A2-F44188D93693}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\icon_256x256.pdn = Resources\icon_256x256.pdn
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{8682D407-DB4A-4955-970C-3464D694E3CC}"
+	ProjectSection(SolutionItems) = preProject
+		Deploy\7za-license.txt = Deploy\7za-license.txt
+		Deploy\7za.exe = Deploy\7za.exe
+		Deploy\deploy.bat = Deploy\deploy.bat
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
