@@ -38,7 +38,7 @@ If you want to extract single files, select file from list and press extract und
 
 ## Binaries
 
-Latest builds can be found from [here](http://uuksu.kapsi.fi/other/RPGMakerDecrypter).
+Latest builds can be found from [here](http://uuksu.fi/other/RPGMakerDecrypter).
 
 ## Building
 
