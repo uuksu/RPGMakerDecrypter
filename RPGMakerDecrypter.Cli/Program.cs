@@ -10,26 +10,21 @@ using RPGMakerDecrypter.Decrypter.Exceptions;
 
 namespace RPGMakerDecrypter.Cli
 {
-    class Program
+    static class Program
     {
         private static CommandLineOptions _commandLineOptions;
 
         static void Main(string[] args)
         {
-            _commandLineOptions = new CommandLineOptions();
+            var parsedResult = Parser.Default.ParseArguments<CommandLineOptions>(args);
+            _commandLineOptions = parsedResult.Value;
 
-            if (Parser.Default.ParseArguments(args, _commandLineOptions) == false)
+            if (parsedResult.Errors.Any())
             {
                 Environment.Exit(1);
             }
 
-            if (_commandLineOptions.InputPaths.Count == 0)
-            {
-                Console.WriteLine(_commandLineOptions.GetUsage());
-                Environment.Exit(1);
-            }
-
-            RPGMakerVersion version = RGSSAD.GetVersion(_commandLineOptions.InputPaths.First());
+            RPGMakerVersion version = RGSSAD.GetVersion(_commandLineOptions.InputPath);
 
             if (version == RPGMakerVersion.Invalid)
             {
@@ -45,7 +40,7 @@ namespace RPGMakerDecrypter.Cli
             }
             else
             {
-                FileInfo fi = new FileInfo(_commandLineOptions.InputPaths.First());
+                FileInfo fi = new FileInfo(_commandLineOptions.InputPath);
                 outputDirectoryPath = fi.DirectoryName;
             }
 
@@ -55,11 +50,11 @@ namespace RPGMakerDecrypter.Cli
                 {
                     case RPGMakerVersion.Xp:
                     case RPGMakerVersion.Vx:
-                        RGSSADv1 rgssadv1 = new RGSSADv1(_commandLineOptions.InputPaths.First());
+                        RGSSADv1 rgssadv1 = new RGSSADv1(_commandLineOptions.InputPath);
                         rgssadv1.ExtractAllFiles(outputDirectoryPath);
                         break;
                     case RPGMakerVersion.VxAce:
-                        RGSSADv3 rgssadv2 = new RGSSADv3(_commandLineOptions.InputPaths.First());
+                        RGSSADv3 rgssadv2 = new RGSSADv3(_commandLineOptions.InputPath);
                         rgssadv2.ExtractAllFiles(outputDirectoryPath);
                         break;
                 }
@@ -79,7 +74,6 @@ namespace RPGMakerDecrypter.Cli
                 Console.WriteLine("Something went wrong with reading or extraction. Archive is likely invalid or corrupted.");
                 Environment.Exit(1);
             }
-
 
             if (_commandLineOptions.GenerateProjectFile)
             {

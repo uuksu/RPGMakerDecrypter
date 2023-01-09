@@ -1,15 +1,15 @@
 ﻿using System;
 using System.IO;
 using System.Security.AccessControl;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit;
+using NUnit.Framework;
 using RPGMakerDecrypter.Decrypter;
 
 namespace RPGMakerDecrypter.Tests
 {
-    [TestClass]
     public class BinaryUtilsTests
     {
-        [TestMethod]
+        [Test]
         public void RPGMakerXpArchiveVersionIsOne()
         {
             FileHelpers.CopyArchives();
@@ -19,13 +19,13 @@ namespace RPGMakerDecrypter.Tests
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
                 byte version = binaryReader.ReadByte();
 
-                Assert.AreEqual(1, version);
+                Assert.That(version, Is.EqualTo(1));
             }
 
             FileHelpers.Cleanup();
         }
 
-        [TestMethod]
+        [Test]
         public void RPGMakerVxArchiveVersionIsOne()
         {
             FileHelpers.CopyArchives();
@@ -35,13 +35,13 @@ namespace RPGMakerDecrypter.Tests
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
                 byte version = binaryReader.ReadByte();
 
-                Assert.AreEqual(1, version);
+                Assert.That(version, Is.EqualTo(1));
             }
 
             FileHelpers.Cleanup();
         }
 
-        [TestMethod]
+        [Test]
         public void RPGMakerVxAceArchiveVersionIsThree()
         {
             FileHelpers.CopyArchives();
@@ -51,13 +51,13 @@ namespace RPGMakerDecrypter.Tests
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
                 byte version = binaryReader.ReadByte();
 
-                Assert.AreEqual(3, version);
+                Assert.That(version, Is.EqualTo(3));
             }
 
             FileHelpers.Cleanup();
         }
 
-        [TestMethod]
+        [Test]
         public void ReadCStringReturnsCorrectHeaderForArchives()
         {
             FileHelpers.CopyArchives();
@@ -65,19 +65,19 @@ namespace RPGMakerDecrypter.Tests
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerXpArchiveName), FileMode.Open)))
             {
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
-                Assert.AreEqual(Constants.RGSSADHeader, s);
+                Assert.That(s, Is.EqualTo(Constants.RGSSADHeader));
             }
 
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxArchiveName), FileMode.Open)))
             {
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
-                Assert.AreEqual(Constants.RGSSADHeader, s);
+                Assert.That(s, Is.EqualTo(Constants.RGSSADHeader));
             }
 
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName), FileMode.Open)))
             {
                 string s = BinaryUtils.ReadCString(binaryReader, 7);
-                Assert.AreEqual(Constants.RGSSADHeader, s);
+                Assert.That(s, Is.EqualTo(Constants.RGSSADHeader));
             }
 
             FileHelpers.Cleanup();

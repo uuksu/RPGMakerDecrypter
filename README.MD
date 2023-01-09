@@ -5,8 +5,7 @@ Software can also generate correct type project file for decrypted data.
 
 ## Usage
 
-RPG Maker Decrypter has Windows application and cli application which both provide same functionality
-but with different interface.
+RPG Maker Decrypter has a Windows application and a cli application which both provide the same functionality but with different interface.
 
 ### RPG Maker Decrypter CLI
 
@@ -32,15 +31,17 @@ Using Windows application is more straightforward. Open RGASSAD file by using Fi
 
 If you want to extract single files, select file from list and press extract under file name and size.
 
+![Screenshots of the GUI application](/screenshots/gui1.png)
+
 ## Requirements
 
-* .NET Framework 4.5.2
+* GUI version works only on Windows, CLI version works with any platform .NET 6.0 targets.
+* .NET Runtime is not required for prebuilt binaries on selected platforms as it is packaged in the executable.
 
 ## Binaries
 
-Latest builds can be found from [here](http://uuksu.fi/other/RPGMakerDecrypter).
+Prebuilt binaries are available for selected platforms. See [Releases](https://github.com/uuksu/RPGMakerDecrypter/releases).
 
 ## Building
 
-RPGMakerDecrypter will compile with Visual Studio 2015. Output deployment package can be created by running deploy.bat script
-from Deploy folder.
+RPGMakerDecrypter will compile with .NET 6.0 SDK.

@@ -21,9 +21,9 @@ namespace RPGMakerDecrypter.Tests
 
             Directory.CreateDirectory(TempDirectoryPath);
 
-            File.Copy(Path.Combine("../../EncryptedArchives", Constants.RpgMakerXpArchiveName), Path.Combine(TempDirectoryPath, Constants.RpgMakerXpArchiveName));
-            File.Copy(Path.Combine("../../EncryptedArchives", Constants.RpgMakerVxArchiveName), Path.Combine(TempDirectoryPath, Constants.RpgMakerVxArchiveName));
-            File.Copy(Path.Combine("../../EncryptedArchives", Constants.RpgMakerVxAceArchiveName), Path.Combine(TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
+            File.Copy(Path.Combine("EncryptedArchives", Constants.RpgMakerXpArchiveName), Path.Combine(TempDirectoryPath, Constants.RpgMakerXpArchiveName));
+            File.Copy(Path.Combine("EncryptedArchives", Constants.RpgMakerVxArchiveName), Path.Combine(TempDirectoryPath, Constants.RpgMakerVxArchiveName));
+            File.Copy(Path.Combine("EncryptedArchives", Constants.RpgMakerVxAceArchiveName), Path.Combine(TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
         }
 
         public static void Cleanup()
