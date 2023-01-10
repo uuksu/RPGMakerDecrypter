@@ -1,0 +1,50 @@
+name: .NET
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build_cli:
+  
+    env:
+      BUILD_CONFIG: 'Release'
+      CLI_PROJECT: 'RPGMakerDecrypter.Cli/RPGMakerDecrypter.Cli.csproj'
+      GUI_PROJECT: 'RPGMakerDecrypter.Gui/RPGMakerDecrypter.Gui.csproj'
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Fetch tags
+      run: git fetch --all --tags
+      
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --configuration $BUILD_CONFIG --no-restore
+      
+    - name: Publish Linux CLI
+      run: dotnet publish $CLI_PROJECT -r linux-x64 -p:PublishSingleFile=true --self-contained true
+      
+    - name: Publish Windows CLI
+      run: dotnet publish $CLI_PROJECT -r win-x64 -p:PublishSingleFile=true --self-contained true
+          
+    - name: Publish Windows GUI
+      run: dotnet publish $GUI_PROJECT -r win-x64 -p:PublishSingleFile=true --self-contained true
+      
+    - uses: ncipollo/release-action@v1.12.0
+      with:
+        bodyFile: CHANGELOG.MD
+        artifacts: "/home/runner/**/linux-x64/**/RPGMakerDecrypter-cli,/home/runner/**/win-x64/**/RPGMakerDecrypter-cli.exe,/home/runner/**/win-x64/**/RPGMakerDecrypter.exe"

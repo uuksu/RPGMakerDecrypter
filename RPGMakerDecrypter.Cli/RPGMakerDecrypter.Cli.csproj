@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <AssemblyName>RPGMakerDecrypter-cli</AssemblyName>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+	<EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icon_256x256_cli.ico</ApplicationIcon>
