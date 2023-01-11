@@ -36,15 +36,15 @@ jobs:
       run: dotnet build --configuration $Env:BUILD_CONFIG --no-restore
       
     - name: Publish Linux CLI
-      run: dotnet publish $Env:CLI_PROJECT --configuration $Env:BUILD_CONFIG -r linux-x64 -p:PublishSingleFile=true --self-contained true
+      run: dotnet publish $Env:CLI_PROJECT --configuration $Env:BUILD_CONFIG -r linux-x64 -p:PublishSingleFile=true --self-contained true --output $Env:GITHUB_WORKSPACE
       
     - name: Publish Windows CLI
-      run: dotnet publish $Env:CLI_PROJECT --configuration $Env:BUILD_CONFIG -r win-x64 -p:PublishSingleFile=true --self-contained true
+      run: dotnet publish $Env:CLI_PROJECT --configuration $Env:BUILD_CONFIG -r win-x64 -p:PublishSingleFile=true --self-contained true --output $Env:GITHUB_WORKSPACE
           
     - name: Publish Windows GUI
-      run: dotnet publish $Env:GUI_PROJECT --configuration $Env:BUILD_CONFIG -r win-x64 -p:PublishSingleFile=true --self-contained true
+      run: dotnet publish $Env:GUI_PROJECT --configuration $Env:BUILD_CONFIG -r win-x64 -p:PublishSingleFile=true --self-contained true --output $Env:GITHUB_WORKSPACE
       
     - uses: ncipollo/release-action@v1.12.0
       with:
         bodyFile: CHANGELOG.MD
-        artifacts: "D:/**/linux-x64/**/RPGMakerDecrypter-cli,D:/**/win-x64/**/RPGMakerDecrypter-cli.exe,D:/**/win-x64/**/RPGMakerDecrypter.exe"
+        artifacts: "RPGMakerDecrypter-cli,RPGMakerDecrypter-cli.exe,RPGMakerDecrypter.exe"
