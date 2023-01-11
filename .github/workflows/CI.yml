@@ -33,16 +33,16 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build --configuration $BUILD_CONFIG --no-restore
+      run: dotnet build --configuration $Env:BUILD_CONFIG --no-restore
       
     - name: Publish Linux CLI
-      run: dotnet publish $CLI_PROJECT -r linux-x64 -p:PublishSingleFile=true --self-contained true
+      run: dotnet publish $CLI_PROJECT --configuration $Env:BUILD_CONFIG -r linux-x64 -p:PublishSingleFile=true --self-contained true
       
     - name: Publish Windows CLI
-      run: dotnet publish $CLI_PROJECT -r win-x64 -p:PublishSingleFile=true --self-contained true
+      run: dotnet publish $CLI_PROJECT --configuration $Env:BUILD_CONFIG -r win-x64 -p:PublishSingleFile=true --self-contained true
           
     - name: Publish Windows GUI
-      run: dotnet publish $GUI_PROJECT -r win-x64 -p:PublishSingleFile=true --self-contained true
+      run: dotnet publish $GUI_PROJECT --configuration $Env:BUILD_CONFIG -r win-x64 -p:PublishSingleFile=true --self-contained true
       
     - uses: ncipollo/release-action@v1.12.0
       with:
