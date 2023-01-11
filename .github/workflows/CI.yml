@@ -13,7 +13,7 @@ jobs:
       CLI_PROJECT: 'RPGMakerDecrypter.Cli/RPGMakerDecrypter.Cli.csproj'
       GUI_PROJECT: 'RPGMakerDecrypter.Gui/RPGMakerDecrypter.Gui.csproj'
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
