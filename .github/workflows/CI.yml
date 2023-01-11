@@ -47,4 +47,4 @@ jobs:
     - uses: ncipollo/release-action@v1.12.0
       with:
         bodyFile: CHANGELOG.MD
-        artifacts: "/home/runner/**/linux-x64/**/RPGMakerDecrypter-cli,/home/runner/**/win-x64/**/RPGMakerDecrypter-cli.exe,/home/runner/**/win-x64/**/RPGMakerDecrypter.exe"
+        artifacts: "D:\\**\\linux-x64\\**\\RPGMakerDecrypter-cli,D:\\**\\win-x64\\**\\RPGMakerDecrypter-cli.exe,D:\\**\\win-x64\\**\\RPGMakerDecrypter.exe"
