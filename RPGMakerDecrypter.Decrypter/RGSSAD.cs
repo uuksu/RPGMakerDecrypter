@@ -92,7 +92,12 @@ namespace RPGMakerDecrypter.Decrypter
             if (createDirectory)
             {
                 // Create output directory if it does not exist
-                string directoryPath = Path.GetDirectoryName(archivedFile.Name);
+                string filePathStr = archivedFile.Name;
+                if (Path.DirectorySeparatorChar != '\\') {
+                    // On Unix-like systems we need to correct that the path names encoded in RGSSAD always use Windows path delimiters.
+                    filePathStr = filePathStr.Replace('\\', Path.DirectorySeparatorChar);
+                }
+                string directoryPath = Path.GetDirectoryName(filePathStr);
 
                 if (directoryPath == null)
                 {
@@ -104,7 +109,7 @@ namespace RPGMakerDecrypter.Decrypter
                     Directory.CreateDirectory(Path.Combine(outputDirectoryPath, directoryPath));
                 }
 
-                outputPath = Path.Combine(outputDirectoryPath, archivedFile.Name);
+                outputPath = Path.Combine(outputDirectoryPath, filePathStr);
             }
             else
             {
