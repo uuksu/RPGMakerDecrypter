@@ -1,3 +1,3 @@
 # Changed in this release
 
-* **Fix GUI About Box**: Fix GUI About Box not working when packaging as a single-file application.
+* **Fix wrong output names on UNIX**: Fix files extracted from a RGASSAD going to a wrong directories on a UNIX-like systems because of hardcoded path delimeters. Thank you @tyrone-sudeium for contribution!
