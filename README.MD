@@ -33,6 +33,14 @@ If you want to extract single files, select file from list and press extract und
 
 ![Screenshots of the GUI application](/screenshots/gui1.png)
 
+### RPG Maker Decrypter GTK GUI (Experiemental)
+	
+Repository also contains [experiemental UI](https://github.com/uuksu/RPGMakerDecrypter/tree/master/RPGMakerDecrypter.Gui.Gtk) that uses GtkSharp under the hood.
+
+There is no prebuilt binary for this UI, but it is functional and can be built from the sources if needed.
+
+Thank you @tyrone-sudeium for porting the UI!
+
 ## Requirements
 
 * GUI version works only on Windows, CLI version works with any platform .NET 6.0 targets.
