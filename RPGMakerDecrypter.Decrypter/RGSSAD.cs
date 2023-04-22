@@ -87,17 +87,13 @@ namespace RPGMakerDecrypter.Decrypter
         /// <exception cref="System.Exception">Invalid file path. Archive could be corrupted.</exception>
         public void ExtractFile(ArchivedFile archivedFile, string outputDirectoryPath, bool overrideExisting = false, bool createDirectory = true)
         {
+            var platformSpecificArchiveFilePath = ArchivedFileNameUtils.GetPlatformSpecificPath(archivedFile.Name);
+
             string outputPath;
 
             if (createDirectory)
             {
-                // Create output directory if it does not exist
-                string filePathStr = archivedFile.Name;
-                if (Path.DirectorySeparatorChar != '\\') {
-                    // On Unix-like systems we need to correct that the path names encoded in RGSSAD always use Windows path delimiters.
-                    filePathStr = filePathStr.Replace('\\', Path.DirectorySeparatorChar);
-                }
-                string directoryPath = Path.GetDirectoryName(filePathStr);
+                string directoryPath = Path.GetDirectoryName(platformSpecificArchiveFilePath);
 
                 if (directoryPath == null)
                 {
@@ -109,11 +105,11 @@ namespace RPGMakerDecrypter.Decrypter
                     Directory.CreateDirectory(Path.Combine(outputDirectoryPath, directoryPath));
                 }
 
-                outputPath = Path.Combine(outputDirectoryPath, filePathStr);
+                outputPath = Path.Combine(outputDirectoryPath, platformSpecificArchiveFilePath);
             }
             else
             {
-                string fileName = archivedFile.Name.Split('\\').Last();
+                string fileName = Path.GetFileName(platformSpecificArchiveFilePath);
                 outputPath = Path.Combine(outputDirectoryPath, fileName);
             }
 

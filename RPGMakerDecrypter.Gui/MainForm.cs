@@ -125,7 +125,7 @@ namespace RPGMakerDecrypter.Gui
 
             ArchivedFile archivedFile = currentArchive.ArchivedFiles[archivedFilesListBox.SelectedIndex];
 
-            fileNameTextBox.Text = archivedFile.Name;
+            fileNameTextBox.Text = ArchivedFileNameUtils.GetFileName(archivedFile.Name);
             sizeTextBox.Text = archivedFile.Size.ToString();
 
             extractFileButton.Enabled = true;
@@ -176,7 +176,7 @@ namespace RPGMakerDecrypter.Gui
 
             ArchivedFile archivedFile = currentArchive.ArchivedFiles[archivedFilesListBox.SelectedIndex];
 
-            string fileName = archivedFile.Name.Split('\\').Last();
+            string fileName = ArchivedFileNameUtils.GetFileName(archivedFile.Name);
             string extension = fileName.Split('.').Last();
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
