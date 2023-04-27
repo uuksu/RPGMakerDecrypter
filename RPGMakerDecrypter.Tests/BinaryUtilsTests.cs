@@ -16,7 +16,7 @@ namespace RPGMakerDecrypter.Tests
 
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerXpArchiveName), FileMode.Open)))
             {
-                string s = BinaryUtils.ReadCString(binaryReader, 7);
+                string s = BinaryUtils.ReadString(binaryReader, 7);
                 byte version = binaryReader.ReadByte();
 
                 Assert.That(version, Is.EqualTo(1));
@@ -32,7 +32,7 @@ namespace RPGMakerDecrypter.Tests
 
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxArchiveName), FileMode.Open)))
             {
-                string s = BinaryUtils.ReadCString(binaryReader, 7);
+                string s = BinaryUtils.ReadString(binaryReader, 7);
                 byte version = binaryReader.ReadByte();
 
                 Assert.That(version, Is.EqualTo(1));
@@ -48,7 +48,7 @@ namespace RPGMakerDecrypter.Tests
 
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName), FileMode.Open)))
             {
-                string s = BinaryUtils.ReadCString(binaryReader, 7);
+                string s = BinaryUtils.ReadString(binaryReader, 7);
                 byte version = binaryReader.ReadByte();
 
                 Assert.That(version, Is.EqualTo(3));
@@ -64,20 +64,20 @@ namespace RPGMakerDecrypter.Tests
 
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerXpArchiveName), FileMode.Open)))
             {
-                string s = BinaryUtils.ReadCString(binaryReader, 7);
-                Assert.That(s, Is.EqualTo(Constants.RGSSADHeader));
+                string s = BinaryUtils.ReadString(binaryReader, 7);
+                Assert.That(s, Is.AnyOf(Constants.RGSSADHeader));
             }
 
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxArchiveName), FileMode.Open)))
             {
-                string s = BinaryUtils.ReadCString(binaryReader, 7);
-                Assert.That(s, Is.EqualTo(Constants.RGSSADHeader));
+                string s = BinaryUtils.ReadString(binaryReader, 7);
+                Assert.That(s, Is.AnyOf(Constants.RGSSADHeader) );
             }
 
             using (BinaryReader binaryReader = new BinaryReader(new FileStream(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName), FileMode.Open)))
             {
-                string s = BinaryUtils.ReadCString(binaryReader, 7);
-                Assert.That(s, Is.EqualTo(Constants.RGSSADHeader));
+                string s = BinaryUtils.ReadString(binaryReader, 7);
+                Assert.That(s, Is.AnyOf(Constants.RGSSADHeader));
             }
 
             FileHelpers.Cleanup();

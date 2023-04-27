@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,14 @@ namespace RPGMakerDecrypter.Gui
     {
         private RPGMakerVersion currentArchiveVersion;
         private RGSSAD currentArchive;
+
+        public enum PackVersion
+        {
+            Invalid = -1,
+            Vx = 1,
+            VxAce = 3,
+            Fux2Pack = (int)('k'),
+        }
 
         public MainForm()
         {
@@ -54,18 +63,46 @@ namespace RPGMakerDecrypter.Gui
                 MessageBox.Show("Invalid input file.", "Invalid input file", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+           
             try
             {
-                switch (currentArchiveVersion)
+                var binaryReader = new BinaryReader(new FileStream(inputFilePath, FileMode.Open));
+                string header;
+                try
                 {
-                    case RPGMakerVersion.Xp:
-                    case RPGMakerVersion.Vx:
-                        currentArchive = new RGSSADv1(inputFilePath);
+                    header = BinaryUtils.ReadString(binaryReader, 7);
+                }
+                catch (Exception)
+                {
+                    throw new InvalidArchiveException("Archive is in invalid format.");
+                }
+                
+                if (!Constants.RGSSADHeader.Contains(header))
+                {
+                    throw new InvalidArchiveException("Header was not found for archive.");
+                }
+                int versionNumber = binaryReader.ReadByte();
+
+                if (!Constants.SupportedRGSSVersions.Contains(versionNumber))
+                {
+                    versionNumber =  -1;
+                }
+
+                binaryReader.BaseStream.Seek(0, SeekOrigin.Begin);
+
+                switch ((PackVersion)versionNumber)
+                {
+                    case PackVersion.Vx:
+                        currentArchive = new RGSSADv1(binaryReader);
                         break;
-                    case RPGMakerVersion.VxAce:
-                        currentArchive = new RGSSADv3(inputFilePath);
+                    case PackVersion.VxAce:
+                        currentArchive = new RGSSADv3(binaryReader);
                         break;
+                    case PackVersion.Fux2Pack:
+                        currentArchive = new RGSSADv3Fux2Pack(binaryReader);
+                        break;
+                    default:
+                        throw new UnsupportedArchiveException("Invalid version number from binary reader");
                 }
             }
             catch (InvalidArchiveException)

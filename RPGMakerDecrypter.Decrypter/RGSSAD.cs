@@ -11,57 +11,47 @@ namespace RPGMakerDecrypter.Decrypter
     /// <summary>
     /// Represents RPG Maker RGSS Encrypted Archive.
     /// </summary>
-    public class RGSSAD : IDisposable
+    public abstract class RGSSAD : IDisposable
     {
         protected readonly string FilePath;
         protected readonly BinaryReader BinaryReader;
+        protected uint key;
+
+        protected virtual int GetArchieveStartPosition() => 8;
+
+        /// <summary>
+        /// Reads the contents of RGSSAD archive and populates ArchivedFiles property.
+        /// </summary>
+        protected abstract void ReadRGSSAD();
+
+        /// <summary>
+        /// Reads the contents of RGSSAD archive for the key of decrypting.
+        /// </summary>
+        protected abstract void PrepareKey();
+
+        /// <summary>
+        /// Decrypts integer from given value.
+        /// Proceeds key forward by calculating new value.
+        /// </summary>
+        /// <param name="value">Encrypted value</param>
+        /// <returns>Decrypted integer</returns>
+        protected abstract int DecryptInteger(int value);
+        /// <summary>
+        /// Decrypts file name from given bytes using given key.
+        /// Proceeds key forward by calculating new value.
+        /// </summary>
+        /// <param name="encryptedName">Encrypted filename</param>
+        /// <returns>Decrypted filename</returns>
+        protected abstract string DecryptFilename(byte[] encryptedName);
 
         public List<ArchivedFile> ArchivedFiles { get; set; }
 
-        public RGSSAD(string filePath)
+        public RGSSAD(BinaryReader inBinaryReader)
         {
-            this.FilePath = filePath;
-            BinaryReader = new BinaryReader(new FileStream(filePath, FileMode.Open));
-        }
-
-        /// <summary>
-        /// Gets the version of RGSSAD.
-        /// </summary>
-        /// <param name="path">FilePath to RGSSAD archive</param>
-        /// <returns></returns>
-        /// <exception cref="InvalidArchiveException">
-        /// Archive is in invalid format.
-        /// or
-        /// Header was not found for archive.
-        /// </exception>
-        public int GetVersion()
-        {
-            string header;
-
-            try
-            {
-                header = BinaryUtils.ReadCString(BinaryReader, 7);
-            }
-            catch (Exception)
-            {
-                throw new InvalidArchiveException("Archive is in invalid format.");
-            }
-
-            if (header != Constants.RGSSADHeader)
-            {
-                throw new InvalidArchiveException("Header was not found for archive.");
-            }
-
-            int result = BinaryReader.ReadByte();
-
-            if (!Constants.SupportedRGSSVersions.Contains(result))
-            {
-                result =  -1;
-            }
-
-            BinaryReader.BaseStream.Seek(0, SeekOrigin.Begin);
-
-            return result;
+            BinaryReader = inBinaryReader;
+            BinaryReader.BaseStream.Seek(GetArchieveStartPosition(), SeekOrigin.Begin);
+            PrepareKey();
+            ReadRGSSAD();
         }
 
         /// <summary>

@@ -20,12 +20,13 @@ namespace RPGMakerDecrypter.Decrypter
         public const string RpgMakerVxProjectFileExtension = "rvproj";
         public const string RpgMakerVxAceProjectFileExtension = "rvproj2";
 
-        public static readonly string RGSSADHeader = "RGSSAD";
+        public static readonly string[] RGSSADHeader = { "RGSSAD\u0000", "Fux2Pac" };
 
         public const int RGASSDv1 = 1;
         public const int RGASSDv3 = 3;
+        public const int RGASSDFux2Pack = 107;
 
-        public static readonly int[] SupportedRGSSVersions = { RGASSDv1, RGASSDv3 };
+        public static readonly int[] SupportedRGSSVersions = { RGASSDv1, RGASSDv3, RGASSDFux2Pack };
 
         public static readonly uint RGASSADv1Key = 0xDEADCAFE;
 
