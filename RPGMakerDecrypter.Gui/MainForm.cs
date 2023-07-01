@@ -47,11 +47,15 @@ namespace RPGMakerDecrypter.Gui
 
             string inputFilePath = openFileDialog.FileName;
 
-            currentArchiveVersion = RGSSAD.GetVersion(inputFilePath);
+            currentArchiveVersion = RGSSAD.GetRPGMakerVersion(inputFilePath);
 
-            if (currentArchiveVersion == RPGMakerVersion.Invalid)
+            if (currentArchiveVersion == RPGMakerVersion.Unknown)
             {
-                MessageBox.Show("Invalid input file.", "Invalid input file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Unable to determinite RGSSAD RPG Maker version. " +
+                    "Please rename RGSSAD file with a extension corresponding to version: " +
+                    "XP: .rgssad, VX: .rgss2a, VX Ace: .rgss3a",
+                    "Unknown RGSSAD file", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -109,7 +113,7 @@ namespace RPGMakerDecrypter.Gui
             SetClickableElementsEnabled(false);
             extractFileButton.Enabled = false;
 
-            currentArchiveVersion = RPGMakerVersion.Invalid;
+            currentArchiveVersion = RPGMakerVersion.Unknown;
 
             currentArchive?.Dispose();
         }
@@ -191,7 +195,7 @@ namespace RPGMakerDecrypter.Gui
             }
 
             FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
-            
+
             try
             {
                 currentArchive.ExtractFile(archivedFile, fileInfo.DirectoryName, true, false);

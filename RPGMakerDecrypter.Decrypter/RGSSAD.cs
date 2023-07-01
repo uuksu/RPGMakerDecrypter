@@ -171,21 +171,26 @@ namespace RPGMakerDecrypter.Decrypter
         /// Gets the RPG Maker version based on RGASSD file extension.
         /// </summary>
         /// <param name="inputPath">Path to RGSSAD file</param>
-        public static RPGMakerVersion GetVersion(string inputPath)
+        public static RPGMakerVersion GetRPGMakerVersion(string inputPath)
         {
             FileInfo fi = new FileInfo(inputPath);
 
-            switch (fi.Name)
+            if(fi.Extension.EndsWith(Constants.RpgMakerXpArchiveExtension))
             {
-                case Constants.RpgMakerXpArchiveName:
-                    return RPGMakerVersion.Xp;
-                case Constants.RpgMakerVxArchiveName:
-                    return RPGMakerVersion.Vx;
-                case Constants.RpgMakerVxAceArchiveName:
-                    return RPGMakerVersion.VxAce;
-                default:
-                    return RPGMakerVersion.Invalid;
+                return RPGMakerVersion.Xp;
             }
+
+            if (fi.Extension.EndsWith(Constants.RpgMakerVxArchiveExtension))
+            {
+                return RPGMakerVersion.Vx;
+            }
+
+            if (fi.Extension.EndsWith(Constants.RpgMakerVxAceArchiveExtension))
+            {
+                return RPGMakerVersion.VxAce;
+            }
+
+            return RPGMakerVersion.Unknown;
         }
     }
 }

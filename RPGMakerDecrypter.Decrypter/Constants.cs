@@ -12,6 +12,10 @@ namespace RPGMakerDecrypter.Decrypter
         public const string RpgMakerVxArchiveName = "Game.rgss2a";
         public const string RpgMakerVxAceArchiveName = "Game.rgss3a";
 
+        public static string RpgMakerXpArchiveExtension = RpgMakerXpArchiveName.Split('.').Last();
+        public static string RpgMakerVxArchiveExtension = RpgMakerVxArchiveName.Split('.').Last();
+        public static string RpgMakerVxAceArchiveExtension = RpgMakerVxAceArchiveName.Split('.').Last();
+
         public const string RpgMakerXpProjectFileContent = "RPGXP 1.02";
         public const string RpgMakerVxProjectFileContent = "RPGVX 1.02";
         public const string RpgMakerVxAceProjectFileContent = "RPGVXAce 1.00";

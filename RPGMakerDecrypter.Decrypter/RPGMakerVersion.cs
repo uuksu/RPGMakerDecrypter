@@ -2,7 +2,7 @@
 {
     public enum RPGMakerVersion
     {
-        Invalid,
+        Unknown,
         Xp,
         Vx,
         VxAce

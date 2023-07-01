@@ -24,11 +24,19 @@ namespace RPGMakerDecrypter.Cli
                 Environment.Exit(1);
             }
 
-            RPGMakerVersion version = RGSSAD.GetVersion(_commandLineOptions.InputPath);
-
-            if (version == RPGMakerVersion.Invalid)
+            if(!File.Exists(_commandLineOptions.InputPath))
             {
-                Console.WriteLine("Invalid input file.");
+                Console.WriteLine($"RGSSAD file not found in path '{_commandLineOptions.InputPath}'");
+                Environment.Exit(1);
+            }
+
+            RPGMakerVersion version = RGSSAD.GetRPGMakerVersion(_commandLineOptions.InputPath);
+
+            if (version == RPGMakerVersion.Unknown)
+            {
+                Console.WriteLine("Unable to determinite RGSSAD RPG Maker version. " +
+                    "Please rename RGSSAD file with a extension corresponding to version: " +
+                    "XP: .rgssad, VX: .rgss2a, VX Ace: .rgss3a");
                 Environment.Exit(1);
             }
 

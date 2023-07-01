@@ -28,255 +28,261 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openRGSSADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.archivedFilesListBox = new System.Windows.Forms.ListBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.sizeTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.fileNameTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.extractFileButton = new System.Windows.Forms.Button();
-            this.generateProjectCheckBox = new System.Windows.Forms.CheckBox();
-            this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.SuspendLayout();
+            menuStrip1 = new System.Windows.Forms.MenuStrip();
+            fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            openRGSSADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            extractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            statusStrip1 = new System.Windows.Forms.StatusStrip();
+            statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            archivedFilesListBox = new System.Windows.Forms.ListBox();
+            tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            sizeTextBox = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
+            fileNameTextBox = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            extractFileButton = new System.Windows.Forms.Button();
+            generateProjectCheckBox = new System.Windows.Forms.CheckBox();
+            menuStrip1.SuspendLayout();
+            statusStrip1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.extractToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(473, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, extractToolStripMenuItem, aboutToolStripMenuItem });
+            menuStrip1.Location = new System.Drawing.Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            menuStrip1.Size = new System.Drawing.Size(552, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openRGSSADToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { openRGSSADToolStripMenuItem, exitToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
             // 
             // openRGSSADToolStripMenuItem
             // 
-            this.openRGSSADToolStripMenuItem.Name = "openRGSSADToolStripMenuItem";
-            this.openRGSSADToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.openRGSSADToolStripMenuItem.Text = "Open RGSSAD...";
-            this.openRGSSADToolStripMenuItem.Click += new System.EventHandler(this.openRGSSADToolStripMenuItem_Click);
+            openRGSSADToolStripMenuItem.Name = "openRGSSADToolStripMenuItem";
+            openRGSSADToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            openRGSSADToolStripMenuItem.Text = "Open RGSSAD...";
+            openRGSSADToolStripMenuItem.Click += openRGSSADToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // extractToolStripMenuItem
             // 
-            this.extractToolStripMenuItem.Enabled = false;
-            this.extractToolStripMenuItem.Name = "extractToolStripMenuItem";
-            this.extractToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.extractToolStripMenuItem.Text = "Extract All...";
-            this.extractToolStripMenuItem.Click += new System.EventHandler(this.extractToolStripMenuItem_Click);
+            extractToolStripMenuItem.Enabled = false;
+            extractToolStripMenuItem.Name = "extractToolStripMenuItem";
+            extractToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            extractToolStripMenuItem.Text = "Extract All...";
+            extractToolStripMenuItem.Click += extractToolStripMenuItem_Click;
             // 
             // aboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.aboutToolStripMenuItem.Text = "About...";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            aboutToolStripMenuItem.Text = "About...";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 430);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(473, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { statusLabel });
+            statusStrip1.Location = new System.Drawing.Point(0, 500);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            statusStrip1.Size = new System.Drawing.Size(552, 22);
+            statusStrip1.TabIndex = 1;
+            statusStrip1.Text = "statusStrip1";
             // 
             // statusLabel
             // 
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(39, 17);
-            this.statusLabel.Text = "Ready";
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new System.Drawing.Size(39, 17);
+            statusLabel.Text = "Ready";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.archivedFilesListBox, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 406F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(473, 406);
-            this.tableLayoutPanel1.TabIndex = 2;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(archivedFilesListBox, 0, 0);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 0);
+            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 468F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(552, 476);
+            tableLayoutPanel1.TabIndex = 2;
             // 
             // archivedFilesListBox
             // 
-            this.archivedFilesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.archivedFilesListBox.Enabled = false;
-            this.archivedFilesListBox.FormattingEnabled = true;
-            this.archivedFilesListBox.Location = new System.Drawing.Point(3, 3);
-            this.archivedFilesListBox.Name = "archivedFilesListBox";
-            this.archivedFilesListBox.Size = new System.Drawing.Size(230, 400);
-            this.archivedFilesListBox.TabIndex = 0;
-            this.archivedFilesListBox.SelectedIndexChanged += new System.EventHandler(this.archivedFilesListBox_SelectedIndexChanged);
+            archivedFilesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            archivedFilesListBox.Enabled = false;
+            archivedFilesListBox.FormattingEnabled = true;
+            archivedFilesListBox.ItemHeight = 15;
+            archivedFilesListBox.Location = new System.Drawing.Point(4, 3);
+            archivedFilesListBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            archivedFilesListBox.Name = "archivedFilesListBox";
+            archivedFilesListBox.Size = new System.Drawing.Size(268, 470);
+            archivedFilesListBox.TabIndex = 0;
+            archivedFilesListBox.SelectedIndexChanged += archivedFilesListBox_SelectedIndexChanged;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(239, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 400F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(231, 400);
-            this.tableLayoutPanel2.TabIndex = 1;
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(groupBox1, 0, 0);
+            tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableLayoutPanel2.Location = new System.Drawing.Point(280, 3);
+            tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 462F));
+            tableLayoutPanel2.Size = new System.Drawing.Size(268, 470);
+            tableLayoutPanel2.TabIndex = 1;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.tableLayoutPanel3);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(225, 394);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "File Info";
+            groupBox1.Controls.Add(tableLayoutPanel3);
+            groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            groupBox1.Location = new System.Drawing.Point(4, 3);
+            groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox1.Size = new System.Drawing.Size(260, 464);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "File Info";
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.sizeTextBox, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.fileNameTextBox, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.extractFileButton, 0, 4);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 26);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 5;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(219, 162);
-            this.tableLayoutPanel3.TabIndex = 0;
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(sizeTextBox, 0, 3);
+            tableLayoutPanel3.Controls.Add(label1, 0, 0);
+            tableLayoutPanel3.Controls.Add(fileNameTextBox, 0, 1);
+            tableLayoutPanel3.Controls.Add(label2, 0, 2);
+            tableLayoutPanel3.Controls.Add(extractFileButton, 0, 4);
+            tableLayoutPanel3.Location = new System.Drawing.Point(7, 30);
+            tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 12, 4, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 5;
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            tableLayoutPanel3.Size = new System.Drawing.Size(255, 187);
+            tableLayoutPanel3.TabIndex = 0;
             // 
             // sizeTextBox
             // 
-            this.sizeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sizeTextBox.Location = new System.Drawing.Point(3, 75);
-            this.sizeTextBox.Name = "sizeTextBox";
-            this.sizeTextBox.ReadOnly = true;
-            this.sizeTextBox.Size = new System.Drawing.Size(213, 20);
-            this.sizeTextBox.TabIndex = 3;
+            sizeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            sizeTextBox.Location = new System.Drawing.Point(4, 85);
+            sizeTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            sizeTextBox.Name = "sizeTextBox";
+            sizeTextBox.ReadOnly = true;
+            sizeTextBox.Size = new System.Drawing.Size(247, 23);
+            sizeTextBox.TabIndex = 3;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name:";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(4, 3);
+            label1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(42, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Name:";
             // 
             // fileNameTextBox
             // 
-            this.fileNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileNameTextBox.Location = new System.Drawing.Point(3, 25);
-            this.fileNameTextBox.Name = "fileNameTextBox";
-            this.fileNameTextBox.ReadOnly = true;
-            this.fileNameTextBox.Size = new System.Drawing.Size(213, 20);
-            this.fileNameTextBox.TabIndex = 1;
+            fileNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            fileNameTextBox.Location = new System.Drawing.Point(4, 28);
+            fileNameTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fileNameTextBox.Name = "fileNameTextBox";
+            fileNameTextBox.ReadOnly = true;
+            fileNameTextBox.Size = new System.Drawing.Size(247, 23);
+            fileNameTextBox.TabIndex = 1;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 53);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Size (bytes):";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(4, 60);
+            label2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(69, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Size (bytes):";
             // 
             // extractFileButton
             // 
-            this.extractFileButton.Enabled = false;
-            this.extractFileButton.Location = new System.Drawing.Point(3, 103);
-            this.extractFileButton.Name = "extractFileButton";
-            this.extractFileButton.Size = new System.Drawing.Size(75, 23);
-            this.extractFileButton.TabIndex = 4;
-            this.extractFileButton.Text = "Extract";
-            this.extractFileButton.UseVisualStyleBackColor = true;
-            this.extractFileButton.Click += new System.EventHandler(this.extractFileButton_Click);
+            extractFileButton.Enabled = false;
+            extractFileButton.Location = new System.Drawing.Point(4, 117);
+            extractFileButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            extractFileButton.Name = "extractFileButton";
+            extractFileButton.Size = new System.Drawing.Size(88, 27);
+            extractFileButton.TabIndex = 4;
+            extractFileButton.Text = "Extract";
+            extractFileButton.UseVisualStyleBackColor = true;
+            extractFileButton.Click += extractFileButton_Click;
             // 
             // generateProjectCheckBox
             // 
-            this.generateProjectCheckBox.AutoSize = true;
-            this.generateProjectCheckBox.Location = new System.Drawing.Point(192, 4);
-            this.generateProjectCheckBox.Name = "generateProjectCheckBox";
-            this.generateProjectCheckBox.Size = new System.Drawing.Size(106, 17);
-            this.generateProjectCheckBox.TabIndex = 3;
-            this.generateProjectCheckBox.Text = "Generate Project";
-            this.generateProjectCheckBox.UseVisualStyleBackColor = true;
+            generateProjectCheckBox.AutoSize = true;
+            generateProjectCheckBox.Location = new System.Drawing.Point(224, 5);
+            generateProjectCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            generateProjectCheckBox.Name = "generateProjectCheckBox";
+            generateProjectCheckBox.Size = new System.Drawing.Size(113, 19);
+            generateProjectCheckBox.TabIndex = 3;
+            generateProjectCheckBox.Text = "Generate Project";
+            generateProjectCheckBox.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 452);
-            this.Controls.Add(this.generateProjectCheckBox);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "MainForm";
-            this.Text = "RPG Maker Decrypter";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(552, 522);
+            Controls.Add(generateProjectCheckBox);
+            Controls.Add(tableLayoutPanel1);
+            Controls.Add(statusStrip1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "MainForm";
+            Text = "RPG Maker Decrypter";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
