@@ -85,7 +85,8 @@ namespace RPGMakerDecrypter.Cli
 
             if (_commandLineOptions.GenerateProjectFile)
             {
-                ProjectGenerator.GenerateProject(version, outputDirectoryPath);
+                var outputSameAsArchivePath = new FileInfo(_commandLineOptions.InputPath).Directory.FullName == new DirectoryInfo(outputDirectoryPath).FullName;
+                ProjectGenerator.GenerateProject(version, outputDirectoryPath, !outputSameAsArchivePath);
             }
         }
     }

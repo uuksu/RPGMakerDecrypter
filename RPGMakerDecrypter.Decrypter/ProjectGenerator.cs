@@ -14,7 +14,7 @@ namespace RPGMakerDecrypter.Decrypter
         /// </summary>
         /// <param name="version">The version.</param>
         /// <param name="outputDirectoryPath">The output directory path.</param>
-        public static void GenerateProject(RPGMakerVersion version, string outputDirectoryPath)
+        public static void GenerateProject(RPGMakerVersion version, string outputDirectoryPath, bool overwrite)
         {
             string projectFileContent = null;
             string projectFileExtension = null;
@@ -39,8 +39,18 @@ namespace RPGMakerDecrypter.Decrypter
                     break;
             }
 
-            File.WriteAllText(Path.Combine(outputDirectoryPath, $"Game.{projectFileExtension}"), projectFileContent);
-            File.WriteAllText(Path.Combine(outputDirectoryPath, "Game.ini"), iniFileContent);
+            var projectFilePath = Path.Combine(outputDirectoryPath, $"Game.{projectFileExtension}");
+            var iniFilePath = Path.Combine(outputDirectoryPath, "Game.ini");
+
+            if(overwrite)
+            {
+                File.WriteAllText(projectFilePath, projectFileContent);
+            }
+
+            if(overwrite)
+            {
+                File.WriteAllText(iniFilePath, iniFileContent);
+            }
         }
     }
 }

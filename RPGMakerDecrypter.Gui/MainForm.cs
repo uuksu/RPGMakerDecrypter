@@ -17,6 +17,7 @@ namespace RPGMakerDecrypter.Gui
     {
         private RPGMakerVersion currentArchiveVersion;
         private RGSSAD currentArchive;
+        private string inputFilePath;
 
         public MainForm()
         {
@@ -45,7 +46,7 @@ namespace RPGMakerDecrypter.Gui
             // It's ok to reset here because user has decided to select other file
             Reset();
 
-            string inputFilePath = openFileDialog.FileName;
+            inputFilePath = openFileDialog.FileName;
 
             currentArchiveVersion = RGSSAD.GetRPGMakerVersion(inputFilePath);
 
@@ -114,6 +115,7 @@ namespace RPGMakerDecrypter.Gui
             extractFileButton.Enabled = false;
 
             currentArchiveVersion = RPGMakerVersion.Unknown;
+            inputFilePath = null;
 
             currentArchive?.Dispose();
         }
@@ -165,7 +167,8 @@ namespace RPGMakerDecrypter.Gui
 
             if (generateProjectCheckBox.Checked)
             {
-                ProjectGenerator.GenerateProject(currentArchiveVersion, outputDirectoryPath);
+                var outputSameAsArchivePath = new FileInfo(inputFilePath).Directory.FullName == new DirectoryInfo(outputDirectoryPath).FullName;
+                ProjectGenerator.GenerateProject(currentArchiveVersion, outputDirectoryPath, !outputSameAsArchivePath);
             }
 
             statusLabel.Text = "Archive extracted succesfully.";
