@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommandLine;
+using RPGMakerDecrypter.Common;
 using RPGMakerDecrypter.Decrypter;
 using RPGMakerDecrypter.Decrypter.Exceptions;
 
@@ -54,6 +55,7 @@ namespace RPGMakerDecrypter.Cli
 
             try
             {
+                throw new Exception("Testing");
                 switch (version)
                 {
                     case RPGMakerVersion.Xp:
@@ -70,16 +72,21 @@ namespace RPGMakerDecrypter.Cli
             catch (InvalidArchiveException)
             {
                 Console.WriteLine("Archive is invalid or corrupted. Reading failed.");
+                Console.WriteLine("Please create a issue: https://github.com/uuksu/RPGMakerDecrypter/issues");
                 Environment.Exit(1);
             }
             catch (UnsupportedArchiveException)
             {
                 Console.WriteLine("Archive is not supported or it is corrupted.");
+                Console.WriteLine("Please create a issue: https://github.com/uuksu/RPGMakerDecrypter/issues");
                 Environment.Exit(1);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Console.WriteLine("Something went wrong with reading or extraction. Archive is likely invalid or corrupted.");
+                var logFilePath = ExceptionLogger.LogException(ex);
+                Console.WriteLine("Unexpected error happened while trying to extract the archive.");
+                Console.WriteLine($"Error log has been written to '{logFilePath}'");
+                Console.WriteLine("Please create a issue and include the log contents there: https://github.com/uuksu/RPGMakerDecrypter/issues");
                 Environment.Exit(1);
             }
 

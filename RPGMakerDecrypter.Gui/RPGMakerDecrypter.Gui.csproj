@@ -19,6 +19,7 @@
 	<MinVerMinimumMajorMinor>2.0</MinVerMinimumMajorMinor>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RPGMakerDecrypter.Common\RPGMakerDecrypter.Common.csproj" />
     <ProjectReference Include="..\RPGMakerDecrypter.Decrypter\RPGMakerDecrypter.Decrypter.csproj" />
   </ItemGroup>
   <ItemGroup>
