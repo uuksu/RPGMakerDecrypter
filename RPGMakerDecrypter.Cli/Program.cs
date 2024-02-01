@@ -55,7 +55,6 @@ namespace RPGMakerDecrypter.Cli
 
             try
             {
-                throw new Exception("Testing");
                 switch (version)
                 {
                     case RPGMakerVersion.Xp:
