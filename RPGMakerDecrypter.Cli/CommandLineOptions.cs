@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -20,5 +20,8 @@ namespace RPGMakerDecrypter.Cli
 
         [Option('p', "project-file", Required = false, HelpText = "If set to true then generates project file.")]
         public bool GenerateProjectFile { get; set; }
+        
+        [Option('w', "overwrite", Required = false, HelpText = "If set to true then it will overwrite files.")]
+        public bool Overwrite { get; set; }
     }
 }
