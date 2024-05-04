@@ -55,7 +55,7 @@ namespace RPGMakerDecrypter.Gui
             {
                 MessageBox.Show(
                     "Unable to determinate RGSSAD RPG Maker version. " +
-                    "Please rename RGSSAD file with a extension corresponding to version: " +
+                    "Please rename RGSSAD file with an extension corresponding to version: " +
                     "XP: .rgssad, VX: .rgss2a, VX Ace: .rgss3a",
                     "Unknown RGSSAD file", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
