@@ -54,7 +54,7 @@ namespace RPGMakerDecrypter.Gui
             if (currentArchiveVersion == RPGMakerVersion.Unknown)
             {
                 MessageBox.Show(
-                    "Unable to determinite RGSSAD RPG Maker version. " +
+                    "Unable to determinate RGSSAD RPG Maker version. " +
                     "Please rename RGSSAD file with a extension corresponding to version: " +
                     "XP: .rgssad, VX: .rgss2a, VX Ace: .rgss3a",
                     "Unknown RGSSAD file", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -77,7 +77,7 @@ namespace RPGMakerDecrypter.Gui
             catch (InvalidArchiveException)
             {
                 MessageBox.Show("Archive is invalid or corrupted. " +
-                    "Reading failed. Please create a issue: https://github.com/uuksu/RPGMakerDecrypter/issues",
+                    "Reading failed. Please create an issue: https://github.com/uuksu/RPGMakerDecrypter/issues",
                     "Invalid archive",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -85,7 +85,7 @@ namespace RPGMakerDecrypter.Gui
             catch (UnsupportedArchiveException)
             {
                 MessageBox.Show("Archive is not supported or it is corrupted. " +
-                    "Please create a issue: https://github.com/uuksu/RPGMakerDecrypter/issues", 
+                    "Please create an issue: https://github.com/uuksu/RPGMakerDecrypter/issues", 
                     "Archive not supported",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -93,9 +93,9 @@ namespace RPGMakerDecrypter.Gui
             catch (Exception ex)
             {
                 var logFilePath = ExceptionLogger.LogException(ex);
-                MessageBox.Show("Unexpected error happened while trying to extract the archive. " +
+                MessageBox.Show("Unexpected error occurred while trying to extract the archive. " +
                     $"Error log has been written to '{logFilePath}' " +
-                    "Please create a issue and include the log contents there: https://github.com/uuksu/RPGMakerDecrypter/issues"
+                    "Please create an issue and include the log contents there: https://github.com/uuksu/RPGMakerDecrypter/issues"
                     , "Archive corrupted",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -108,7 +108,7 @@ namespace RPGMakerDecrypter.Gui
 
             SetClickableElementsEnabled(true);
 
-            statusLabel.Text = "Archive opened succesfully.";
+            statusLabel.Text = "Archive opened successfully.";
         }
 
         private void SetClickableElementsEnabled(bool enabled)
@@ -171,9 +171,9 @@ namespace RPGMakerDecrypter.Gui
             catch (Exception ex)
             {
                 var logFilePath = ExceptionLogger.LogException(ex);
-                MessageBox.Show("Unexpected error happened while trying to extract the archive. " +
+                MessageBox.Show("Unexpected error occurred while trying to extract the archive. " +
                     $"Error log has been written to '{logFilePath}' " +
-                    "Please create a issue and include the log contents there: https://github.com/uuksu/RPGMakerDecrypter/issues"
+                    "Please create an issue and include the log contents there: https://github.com/uuksu/RPGMakerDecrypter/issues"
                     , "Archive corrupted",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -186,7 +186,7 @@ namespace RPGMakerDecrypter.Gui
                 ProjectGenerator.GenerateProject(currentArchiveVersion, outputDirectoryPath, !outputSameAsArchivePath);
             }
 
-            statusLabel.Text = "Archive extracted succesfully.";
+            statusLabel.Text = "Archive extracted successfully.";
         }
 
         private void extractFileButton_Click(object sender, EventArgs e)
@@ -221,9 +221,9 @@ namespace RPGMakerDecrypter.Gui
             catch (Exception ex)
             {
                 var logFilePath = ExceptionLogger.LogException(ex);
-                MessageBox.Show("Unexpected error happened while trying to extract the archive. " +
+                MessageBox.Show("Unexpected error occurred while trying to extract the archive. " +
                     $"Error log has been written to '{logFilePath}' " +
-                    "Please create a issue and include the log contents there: https://github.com/uuksu/RPGMakerDecrypter/issues"
+                    "Please create an issue and include the log contents there: https://github.com/uuksu/RPGMakerDecrypter/issues"
                     , "Archive corrupted",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -232,7 +232,7 @@ namespace RPGMakerDecrypter.Gui
                 return;
             }
 
-            statusLabel.Text = $"Extracted {fileName} succesfully.";
+            statusLabel.Text = $"Extracted {fileName} successfully.";
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
