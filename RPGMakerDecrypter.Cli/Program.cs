@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -60,11 +60,11 @@ namespace RPGMakerDecrypter.Cli
                     case RPGMakerVersion.Xp:
                     case RPGMakerVersion.Vx:
                         RGSSADv1 rgssadv1 = new RGSSADv1(_commandLineOptions.InputPath);
-                        rgssadv1.ExtractAllFiles(outputDirectoryPath, overrideExisting: _commandLineOptions.Overwrite);
+                        rgssadv1.ExtractAllFiles(outputDirectoryPath, _commandLineOptions.Overwrite);
                         break;
                     case RPGMakerVersion.VxAce:
                         RGSSADv3 rgssadv2 = new RGSSADv3(_commandLineOptions.InputPath);
-                        rgssadv2.ExtractAllFiles(outputDirectoryPath, overrideExisting: _commandLineOptions.Overwrite);
+                        rgssadv2.ExtractAllFiles(outputDirectoryPath, _commandLineOptions.Overwrite);
                         break;
                 }
             }
