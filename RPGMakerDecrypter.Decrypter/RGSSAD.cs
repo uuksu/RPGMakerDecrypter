@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -73,7 +73,7 @@ namespace RPGMakerDecrypter.Decrypter
         {
             foreach (ArchivedFile archivedFile in ArchivedFiles)
             {
-                ExtractFile(archivedFile, outputDirectoryPath, overrideExisting: overrideExisting);
+                ExtractFile(archivedFile, outputDirectoryPath, overrideExisting);
             }
         }
 
