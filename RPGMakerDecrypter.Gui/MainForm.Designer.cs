@@ -47,6 +47,7 @@
             label2 = new System.Windows.Forms.Label();
             extractFileButton = new System.Windows.Forms.Button();
             generateProjectCheckBox = new System.Windows.Forms.CheckBox();
+            overwriteCheckBox = new System.Windows.Forms.CheckBox();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -251,7 +252,7 @@
             // generateProjectCheckBox
             // 
             generateProjectCheckBox.AutoSize = true;
-            generateProjectCheckBox.Location = new System.Drawing.Point(224, 5);
+            generateProjectCheckBox.Location = new System.Drawing.Point(360, 5);
             generateProjectCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             generateProjectCheckBox.Name = "generateProjectCheckBox";
             generateProjectCheckBox.Size = new System.Drawing.Size(113, 19);
@@ -259,12 +260,24 @@
             generateProjectCheckBox.Text = "Generate Project";
             generateProjectCheckBox.UseVisualStyleBackColor = true;
             // 
+            // overwriteCheckBox
+            // 
+            overwriteCheckBox.AutoSize = true;
+            overwriteCheckBox.Location = new System.Drawing.Point(474, 5);
+            overwriteCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            overwriteCheckBox.Name = "overwriteCheckBox";
+            overwriteCheckBox.Size = new System.Drawing.Size(113, 19);
+            overwriteCheckBox.TabIndex = 3;
+            overwriteCheckBox.Text = "Overwrite";
+            overwriteCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(552, 522);
             Controls.Add(generateProjectCheckBox);
+            Controls.Add(overwriteCheckBox);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
@@ -302,6 +315,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox fileNameTextBox;
         private System.Windows.Forms.CheckBox generateProjectCheckBox;
+        private System.Windows.Forms.CheckBox overwriteCheckBox;
         private System.Windows.Forms.TextBox sizeTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button extractFileButton;

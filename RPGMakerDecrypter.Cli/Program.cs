@@ -60,11 +60,11 @@ namespace RPGMakerDecrypter.Cli
                     case RPGMakerVersion.Xp:
                     case RPGMakerVersion.Vx:
                         RGSSADv1 rgssadv1 = new RGSSADv1(_commandLineOptions.InputPath);
-                        rgssadv1.ExtractAllFiles(outputDirectoryPath);
+                        rgssadv1.ExtractAllFiles(outputDirectoryPath, _commandLineOptions.Overwrite);
                         break;
                     case RPGMakerVersion.VxAce:
                         RGSSADv3 rgssadv2 = new RGSSADv3(_commandLineOptions.InputPath);
-                        rgssadv2.ExtractAllFiles(outputDirectoryPath);
+                        rgssadv2.ExtractAllFiles(outputDirectoryPath, _commandLineOptions.Overwrite);
                         break;
                 }
             }

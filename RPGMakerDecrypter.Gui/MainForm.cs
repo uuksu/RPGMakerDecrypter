@@ -19,6 +19,7 @@ namespace RPGMakerDecrypter.Gui
         private RPGMakerVersion currentArchiveVersion;
         private RGSSAD currentArchive;
         private string inputFilePath;
+        private bool overwriteFlag = false;
 
         public MainForm()
         {
@@ -163,10 +164,11 @@ namespace RPGMakerDecrypter.Gui
             }
 
             string outputDirectoryPath = folderBrowserDialog.SelectedPath;
+            overwriteFlag = overwriteCheckBox.Checked;
 
             try
             {
-                currentArchive.ExtractAllFiles(outputDirectoryPath, true);
+                currentArchive.ExtractAllFiles(outputDirectoryPath, overwriteFlag);
             }
             catch (Exception ex)
             {
@@ -216,7 +218,7 @@ namespace RPGMakerDecrypter.Gui
 
             try
             {
-                currentArchive.ExtractFile(archivedFile, fileInfo.DirectoryName, true, false);
+                currentArchive.ExtractFile(archivedFile, fileInfo.DirectoryName, overwriteFlag, false);
             }
             catch (Exception ex)
             {
