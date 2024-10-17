@@ -98,8 +98,8 @@ namespace RPGMakerDecrypter.Gui.Gtk
             string inputFilePath = openFileDialog.Filename;
             openFileDialog.Dispose();
 
-            currentArchiveVersion = RGSSAD.GetVersion(inputFilePath);
-            if (currentArchiveVersion == RPGMakerVersion.Invalid)
+            currentArchiveVersion = RGSSAD.GetRPGMakerVersion(inputFilePath);
+            if (currentArchiveVersion == RPGMakerVersion.Unknown)
             {
                 MessageDialog md = new MessageDialog(this, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Close, "Invalid input file.");
                 md.Run();
@@ -175,7 +175,7 @@ namespace RPGMakerDecrypter.Gui.Gtk
             SetClickableElementsEnabled(false);
             extractFileButton.Sensitive = false;
 
-            currentArchiveVersion = RPGMakerVersion.Invalid;
+            currentArchiveVersion = RPGMakerVersion.Unknown;
 
             currentArchive?.Dispose();
         }
@@ -213,7 +213,7 @@ namespace RPGMakerDecrypter.Gui.Gtk
 
             if (generateProjectCheckBox.Active)
             {
-                ProjectGenerator.GenerateProject(currentArchiveVersion, outputDirectoryPath);
+                ProjectGenerator.GenerateProject(currentArchiveVersion, outputDirectoryPath, true);
             }
 
             statusLabel.Text = "Archive extracted succesfully.";
