@@ -17,7 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\RPGMakerDecrypter.Decrypter\RPGMakerDecrypter.Decrypter.csproj" />
+	  <ProjectReference Include="..\RPGMakerDecrypter.RGSSAD\RPGMakerDecrypter.RGSSAD.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

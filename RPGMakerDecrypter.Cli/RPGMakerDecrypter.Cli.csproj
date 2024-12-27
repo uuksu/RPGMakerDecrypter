@@ -18,7 +18,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\RPGMakerDecrypter.Common\RPGMakerDecrypter.Common.csproj" />
-    <ProjectReference Include="..\RPGMakerDecrypter.Decrypter\RPGMakerDecrypter.Decrypter.csproj" />
+    <ProjectReference Include="..\RPGMakerDecrypter.RGSSAD\RPGMakerDecrypter.RGSSAD.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon_256x256_cli.ico" />
