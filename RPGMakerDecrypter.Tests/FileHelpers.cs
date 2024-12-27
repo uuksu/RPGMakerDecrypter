@@ -26,11 +26,34 @@ namespace RPGMakerDecrypter.Tests
             File.Copy(Path.Combine("EncryptedArchives", Constants.RpgMakerVxAceArchiveName), Path.Combine(TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
         }
 
-        public static void Cleanup()
+        public static void CopyEncryptedFiles()
+        {
+            if (Directory.Exists(TempDirectoryPath))
+            {
+                Directory.Delete(TempDirectoryPath, true);
+            }
+
+            Directory.CreateDirectory(TempDirectoryPath);
+            
+            File.Copy(Path.Combine("EncryptedFiles", "Image"), Path.Combine(TempDirectoryPath, "Image"));
+            File.Copy(Path.Combine("EncryptedFiles", "AudioOrbis"), Path.Combine(TempDirectoryPath, "AudioOrbis"));
+            File.Copy(Path.Combine("EncryptedFiles", "AudioMpeg"), Path.Combine(TempDirectoryPath, "AudioMpeg"));
+        }
+
+        public static void CleanupArchives()
         {
             File.Delete(Path.Combine(TempDirectoryPath, Constants.RpgMakerXpArchiveName));
             File.Delete(Path.Combine(TempDirectoryPath, Constants.RpgMakerVxArchiveName));
             File.Delete(Path.Combine(TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
+
+            Directory.Delete(TempDirectoryPath);
+        }
+        
+        public static void CleanupEncryptedFiles()
+        {
+            File.Delete(Path.Combine(TempDirectoryPath, "Image"));
+            File.Delete(Path.Combine(TempDirectoryPath, "AudioOrbis"));
+            File.Delete(Path.Combine(TempDirectoryPath, "AudioMpeg"));
 
             Directory.Delete(TempDirectoryPath);
         }

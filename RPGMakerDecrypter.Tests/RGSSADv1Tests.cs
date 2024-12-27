@@ -22,7 +22,7 @@ namespace RPGMakerDecrypter.Tests
 
             rgssad.Dispose();
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace RPGMakerDecrypter.Tests
 
             rgssad.Dispose();
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -56,7 +56,7 @@ namespace RPGMakerDecrypter.Tests
 
             rgssad.Dispose();
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -73,7 +73,7 @@ namespace RPGMakerDecrypter.Tests
 
             rgssad.Dispose();
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -90,7 +90,7 @@ namespace RPGMakerDecrypter.Tests
 
             rgssad.Dispose();
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -107,7 +107,7 @@ namespace RPGMakerDecrypter.Tests
 
             rgssad.Dispose();
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -124,7 +124,7 @@ namespace RPGMakerDecrypter.Tests
 
             rgssad.Dispose();
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -141,7 +141,7 @@ namespace RPGMakerDecrypter.Tests
 
             rgssad.Dispose();
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -158,7 +158,7 @@ namespace RPGMakerDecrypter.Tests
 
             rgssad.Dispose();
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
 

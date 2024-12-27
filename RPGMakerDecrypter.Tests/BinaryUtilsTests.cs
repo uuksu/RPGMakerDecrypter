@@ -22,7 +22,7 @@ namespace RPGMakerDecrypter.Tests
                 Assert.That(version, Is.EqualTo(1));
             }
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace RPGMakerDecrypter.Tests
                 Assert.That(version, Is.EqualTo(1));
             }
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -54,7 +54,7 @@ namespace RPGMakerDecrypter.Tests
                 Assert.That(version, Is.EqualTo(3));
             }
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
         [Test]
@@ -80,7 +80,7 @@ namespace RPGMakerDecrypter.Tests
                 Assert.That(s, Is.EqualTo(Constants.RGSSADHeader));
             }
 
-            FileHelpers.Cleanup();
+            FileHelpers.CleanupArchives();
         }
 
 
