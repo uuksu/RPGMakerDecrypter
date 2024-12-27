@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGMakerDecrypter.Tests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGMakerDecrypter.Cli", "RPGMakerDecrypter.Cli\RPGMakerDecrypter.Cli.csproj", "{D03BC34B-EEB1-4A26-B4FB-190CE153E06A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGMakerDecrypter.Gui", "RPGMakerDecrypter.Gui\RPGMakerDecrypter.Gui.csproj", "{3BAA8C8A-0AF9-483B-9581-BCE2BFD44262}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{48D60675-A06B-4683-99A2-F44188D93693}"
 	ProjectSection(SolutionItems) = preProject
 		Resources\icon_256x256.pdn = Resources\icon_256x256.pdn
@@ -43,10 +41,6 @@ Global
 		{D03BC34B-EEB1-4A26-B4FB-190CE153E06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D03BC34B-EEB1-4A26-B4FB-190CE153E06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D03BC34B-EEB1-4A26-B4FB-190CE153E06A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3BAA8C8A-0AF9-483B-9581-BCE2BFD44262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3BAA8C8A-0AF9-483B-9581-BCE2BFD44262}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3BAA8C8A-0AF9-483B-9581-BCE2BFD44262}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3BAA8C8A-0AF9-483B-9581-BCE2BFD44262}.Release|Any CPU.Build.0 = Release|Any CPU
 		{41DB3BF6-A576-4D78-8E77-89A906C9A49A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{41DB3BF6-A576-4D78-8E77-89A906C9A49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41DB3BF6-A576-4D78-8E77-89A906C9A49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
