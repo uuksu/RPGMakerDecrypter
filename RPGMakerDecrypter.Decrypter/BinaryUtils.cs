@@ -14,13 +14,13 @@ namespace RPGMakerDecrypter.Decrypter
         /// <returns>Found string</returns>
         public static string ReadCString(BinaryReader binaryReader, int maxLength)
         {
-            long beginPosition = binaryReader.BaseStream.Position;
-            int stringLenght = 0;
+            var beginPosition = binaryReader.BaseStream.Position;
+            var stringLenght = 0;
 
             // Searching for end of the C string (byte == 0, NUL character)
             do
             {
-                byte readByte = binaryReader.ReadByte();
+                var readByte = binaryReader.ReadByte();
                 if (readByte == 0)
                     break;
 
@@ -30,7 +30,7 @@ namespace RPGMakerDecrypter.Decrypter
             // Seeking back to beginning
             binaryReader.BaseStream.Seek(beginPosition, SeekOrigin.Begin);
 
-            string result = Encoding.ASCII.GetString(binaryReader.ReadBytes(stringLenght));
+            var result = Encoding.ASCII.GetString(binaryReader.ReadBytes(stringLenght));
 
             // Seeking to end position of the string
             binaryReader.BaseStream.Seek(beginPosition + stringLenght + 1, SeekOrigin.Begin);

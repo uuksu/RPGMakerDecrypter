@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RPGMakerDecrypter.Decrypter.Exceptions;
 
 namespace RPGMakerDecrypter.Decrypter
@@ -18,7 +16,7 @@ namespace RPGMakerDecrypter.Decrypter
 
         public List<ArchivedFile> ArchivedFiles { get; set; }
 
-        public RGSSAD(string filePath)
+        protected RGSSAD(string filePath)
         {
             this.FilePath = filePath;
             BinaryReader = new BinaryReader(new FileStream(filePath, FileMode.Open));
@@ -34,7 +32,7 @@ namespace RPGMakerDecrypter.Decrypter
         /// or
         /// Header was not found for archive.
         /// </exception>
-        public int GetVersion()
+        protected int GetVersion()
         {
             string header;
 
@@ -71,7 +69,7 @@ namespace RPGMakerDecrypter.Decrypter
         /// <param name="overrideExisting">if set to true, overrides existing files</param>
         public void ExtractAllFiles(string outputDirectoryPath, bool overrideExisting = false)
         {
-            foreach (ArchivedFile archivedFile in ArchivedFiles)
+            foreach (var archivedFile in ArchivedFiles)
             {
                 ExtractFile(archivedFile, outputDirectoryPath, overrideExisting);
             }
@@ -85,7 +83,7 @@ namespace RPGMakerDecrypter.Decrypter
         /// <param name="overrideExisting">If set to true, overrides existing files</param>
         /// <param name="createDirectory">If set to true, creates directory specified in encrypted file name</param>
         /// <exception cref="System.Exception">Invalid file path. Archive could be corrupted.</exception>
-        public void ExtractFile(ArchivedFile archivedFile, string outputDirectoryPath, bool overrideExisting = false, bool createDirectory = true)
+        private void ExtractFile(ArchivedFile archivedFile, string outputDirectoryPath, bool overrideExisting = false, bool createDirectory = true)
         {
             var platformSpecificArchiveFilePath = ArchivedFileNameUtils.GetPlatformSpecificPath(archivedFile.Name);
 
@@ -93,7 +91,7 @@ namespace RPGMakerDecrypter.Decrypter
 
             if (createDirectory)
             {
-                string directoryPath = Path.GetDirectoryName(platformSpecificArchiveFilePath);
+                var directoryPath = Path.GetDirectoryName(platformSpecificArchiveFilePath);
 
                 if (directoryPath == null)
                 {
@@ -109,7 +107,7 @@ namespace RPGMakerDecrypter.Decrypter
             }
             else
             {
-                string fileName = Path.GetFileName(platformSpecificArchiveFilePath);
+                var fileName = Path.GetFileName(platformSpecificArchiveFilePath);
                 outputPath = Path.Combine(outputDirectoryPath, fileName);
             }
 
@@ -120,9 +118,9 @@ namespace RPGMakerDecrypter.Decrypter
             }
 
             BinaryReader.BaseStream.Seek(archivedFile.Offset, SeekOrigin.Begin);
-            byte[] data = BinaryReader.ReadBytes(archivedFile.Size);
+            var data = BinaryReader.ReadBytes(archivedFile.Size);
 
-            BinaryWriter binaryWriter = new BinaryWriter(File.OpenWrite(outputPath));
+            var binaryWriter = new BinaryWriter(File.OpenWrite(outputPath));
 
             binaryWriter.Write(DecryptFileData(data, archivedFile.Key));
 
@@ -137,13 +135,13 @@ namespace RPGMakerDecrypter.Decrypter
         /// <returns></returns>
         private byte[] DecryptFileData(byte[] encryptedFileData, uint key)
         {
-            byte[] decryptedFileData = new byte[encryptedFileData.Length];
+            var decryptedFileData = new byte[encryptedFileData.Length];
 
-            uint tempKey = key;
-            byte[] keyBytes = BitConverter.GetBytes(key);
-            int j = 0;
+            var tempKey = key;
+            var keyBytes = BitConverter.GetBytes(key);
+            var j = 0;
 
-            for (int i = 0; i <= encryptedFileData.Length - 1; i++)
+            for (var i = 0; i <= encryptedFileData.Length - 1; i++)
             {
                 if (j == 4)
                 {
@@ -173,7 +171,7 @@ namespace RPGMakerDecrypter.Decrypter
         /// <param name="inputPath">Path to RGSSAD file</param>
         public static RPGMakerVersion GetRPGMakerVersion(string inputPath)
         {
-            FileInfo fi = new FileInfo(inputPath);
+            var fi = new FileInfo(inputPath);
 
             if(fi.Extension.EndsWith(Constants.RpgMakerXpArchiveExtension))
             {

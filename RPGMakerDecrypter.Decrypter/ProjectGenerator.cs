@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace RPGMakerDecrypter.Decrypter
 {
@@ -14,6 +9,7 @@ namespace RPGMakerDecrypter.Decrypter
         /// </summary>
         /// <param name="version">The version.</param>
         /// <param name="outputDirectoryPath">The output directory path.</param>
+        /// <param name="overwrite">If set to true, will overwrite existing project file.</param>
         public static void GenerateProject(RPGMakerVersion version, string outputDirectoryPath, bool overwrite)
         {
             string projectFileContent = null;

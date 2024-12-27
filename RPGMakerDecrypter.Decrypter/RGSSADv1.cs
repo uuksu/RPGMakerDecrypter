@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using RPGMakerDecrypter.Decrypter.Exceptions;
 
 namespace RPGMakerDecrypter.Decrypter
@@ -15,7 +12,7 @@ namespace RPGMakerDecrypter.Decrypter
     {
         public RGSSADv1(string filePath) : base(filePath)
         {
-            int version = GetVersion();
+            var version = GetVersion();
 
             if (version != Constants.RGASSDv1)
             {
@@ -30,16 +27,16 @@ namespace RPGMakerDecrypter.Decrypter
         /// </summary>
         private void ReadRGSSAD()
         {
-            uint key = Constants.RGASSADv1Key;
+            var key = Constants.RGASSADv1Key;
 
             ArchivedFiles = new List<ArchivedFile>();
 
             BinaryReader.BaseStream.Seek(8, SeekOrigin.Begin);
             while (true)
             {
-                ArchivedFile archivedFile = new ArchivedFile();
+                var archivedFile = new ArchivedFile();
 
-                int length = DecryptInteger(BinaryReader.ReadInt32(), ref key);
+                var length = DecryptInteger(BinaryReader.ReadInt32(), ref key);
                 archivedFile.Name = DecryptFilename(BinaryReader.ReadBytes(length), ref key);
                 archivedFile.Size = DecryptInteger(BinaryReader.ReadInt32(), ref key);
                 archivedFile.Offset = BinaryReader.BaseStream.Position;
@@ -60,7 +57,7 @@ namespace RPGMakerDecrypter.Decrypter
         /// <returns>Decrypted integer</returns>
         private int DecryptInteger(int value, ref uint key)
         {
-            long result = value ^ key;
+            var result = value ^ key;
 
             key *= 7;
             key += 3;
@@ -77,9 +74,9 @@ namespace RPGMakerDecrypter.Decrypter
         /// <returns>Decrypted filename</returns>
         private string DecryptFilename(byte[] encryptedName, ref uint key)
         {
-            byte[] decryptedName = new byte[encryptedName.Length];
+            var decryptedName = new byte[encryptedName.Length];
 
-            for (int i = 0; i <= encryptedName.Length - 1; i++)
+            for (var i = 0; i <= encryptedName.Length - 1; i++)
             {
                 decryptedName[i] = (byte)(encryptedName[i] ^ (key & 0xff));
 
@@ -87,7 +84,7 @@ namespace RPGMakerDecrypter.Decrypter
                 key += 3;
             }
 
-            string result = Encoding.UTF8.GetString(decryptedName);
+            var result = Encoding.UTF8.GetString(decryptedName);
 
             return result;
         }

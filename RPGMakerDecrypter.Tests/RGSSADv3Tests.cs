@@ -16,7 +16,7 @@ namespace RPGMakerDecrypter.Tests
         {
             FileHelpers.CopyArchives();
 
-            RGSSADv3 rgssad = new RGSSADv3(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
+            var rgssad = new RGSSADv3(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
 
             Assert.That(rgssad.ArchivedFiles.Count, Is.EqualTo(16));
 
@@ -30,7 +30,7 @@ namespace RPGMakerDecrypter.Tests
         {
             FileHelpers.CopyArchives();
 
-            RGSSADv3 rgssad = new RGSSADv3(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
+            var rgssad = new RGSSADv3(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
 
             // Verified with Falos RPG Maker Decrypter
             Assert.That(rgssad.ArchivedFiles[0].Name, Is.EqualTo(@"Data\Actors.rvdata2"));
@@ -47,7 +47,7 @@ namespace RPGMakerDecrypter.Tests
         {
             FileHelpers.CopyArchives();
 
-            RGSSADv3 rgssad = new RGSSADv3(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
+            var rgssad = new RGSSADv3(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
 
             // Verified with Falos RPG Maker Decrypter
             Assert.That(rgssad.ArchivedFiles[0].Offset, Is.EqualTo(605));
@@ -64,7 +64,7 @@ namespace RPGMakerDecrypter.Tests
         {
             FileHelpers.CopyArchives();
 
-            RGSSADv3 rgssad = new RGSSADv3(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
+            var rgssad = new RGSSADv3(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
 
             // Verified with Falos RPG Maker Decrypter
             Assert.That(rgssad.ArchivedFiles[0].Size, Is.EqualTo(3032));
@@ -81,7 +81,7 @@ namespace RPGMakerDecrypter.Tests
         {
             FileHelpers.CopyArchives();
 
-            RGSSADv3 rgssad = new RGSSADv3(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
+            var rgssad = new RGSSADv3(Path.Combine(FileHelpers.TempDirectoryPath, Constants.RpgMakerVxAceArchiveName));
 
             // Verified with Falos RPG Maker Decrypter
             Assert.That(rgssad.ArchivedFiles[0].Key, Is.EqualTo((uint)0x00000029));

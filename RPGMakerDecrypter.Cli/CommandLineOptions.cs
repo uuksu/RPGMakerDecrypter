@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using CommandLine;
-using CommandLine.Text;
+﻿using CommandLine;
 
 namespace RPGMakerDecrypter.Cli
 {
-    class CommandLineOptions
+    internal class CommandLineOptions
     {
         [Value(0, Required = true, HelpText = "Path to the RGSSAD file.")]
         public string InputPath { get; set; }

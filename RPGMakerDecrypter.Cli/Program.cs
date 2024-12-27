@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CommandLine;
 using RPGMakerDecrypter.Common;
 using RPGMakerDecrypter.Decrypter;
@@ -31,7 +28,7 @@ namespace RPGMakerDecrypter.Cli
                 Environment.Exit(1);
             }
 
-            RPGMakerVersion version = RGSSAD.GetRPGMakerVersion(_commandLineOptions.InputPath);
+            var version = RGSSAD.GetRPGMakerVersion(_commandLineOptions.InputPath);
 
             if (version == RPGMakerVersion.Unknown)
             {
@@ -49,7 +46,7 @@ namespace RPGMakerDecrypter.Cli
             }
             else
             {
-                FileInfo fi = new FileInfo(_commandLineOptions.InputPath);
+                var fi = new FileInfo(_commandLineOptions.InputPath);
                 outputDirectoryPath = fi.DirectoryName;
             }
 
@@ -59,11 +56,11 @@ namespace RPGMakerDecrypter.Cli
                 {
                     case RPGMakerVersion.Xp:
                     case RPGMakerVersion.Vx:
-                        RGSSADv1 rgssadv1 = new RGSSADv1(_commandLineOptions.InputPath);
+                        var rgssadv1 = new RGSSADv1(_commandLineOptions.InputPath);
                         rgssadv1.ExtractAllFiles(outputDirectoryPath, _commandLineOptions.Overwrite);
                         break;
                     case RPGMakerVersion.VxAce:
-                        RGSSADv3 rgssadv2 = new RGSSADv3(_commandLineOptions.InputPath);
+                        var rgssadv2 = new RGSSADv3(_commandLineOptions.InputPath);
                         rgssadv2.ExtractAllFiles(outputDirectoryPath, _commandLineOptions.Overwrite);
                         break;
                 }
