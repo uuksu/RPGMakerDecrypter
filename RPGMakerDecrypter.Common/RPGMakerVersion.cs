@@ -1,10 +1,12 @@
-﻿namespace RPGMakerDecrypter.Decrypter
+﻿namespace RPGMakerDecrypter.RGSSAD
 {
     public enum RPGMakerVersion
     {
         Unknown,
         Xp,
         Vx,
-        VxAce
+        VxAce,
+        MV,
+        MZ
     }
 }

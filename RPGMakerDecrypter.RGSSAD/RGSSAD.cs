@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using RPGMakerDecrypter.Decrypter.Exceptions;
+using RPGMakerDecrypter.RGSSAD.Exceptions;
 
-namespace RPGMakerDecrypter.Decrypter
+namespace RPGMakerDecrypter.RGSSAD
 {
     /// <summary>
     /// Represents RPG Maker RGSS Encrypted Archive.
@@ -171,6 +171,11 @@ namespace RPGMakerDecrypter.Decrypter
         /// <param name="inputPath">Path to RGSSAD file</param>
         public static RPGMakerVersion GetRPGMakerVersion(string inputPath)
         {
+            if (!File.Exists(inputPath))
+            {
+                return RPGMakerVersion.Unknown;
+            }
+            
             var fi = new FileInfo(inputPath);
 
             if(fi.Extension.EndsWith(Constants.RpgMakerXpArchiveExtension))

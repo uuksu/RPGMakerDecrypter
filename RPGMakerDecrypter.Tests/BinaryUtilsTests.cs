@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.AccessControl;
 using NUnit;
 using NUnit.Framework;
-using RPGMakerDecrypter.Decrypter;
+using RPGMakerDecrypter.RGSSAD;
 
 namespace RPGMakerDecrypter.Tests
 {

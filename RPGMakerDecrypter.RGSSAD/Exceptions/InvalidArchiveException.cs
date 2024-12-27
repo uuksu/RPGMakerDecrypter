@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RPGMakerDecrypter.Decrypter.Exceptions
+namespace RPGMakerDecrypter.RGSSAD.Exceptions
 {
     public class InvalidArchiveException : Exception
     {

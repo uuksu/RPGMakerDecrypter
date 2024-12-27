@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 
-namespace RPGMakerDecrypter.Decrypter
+namespace RPGMakerDecrypter.RGSSAD
 {
     public static class BinaryUtils
     {

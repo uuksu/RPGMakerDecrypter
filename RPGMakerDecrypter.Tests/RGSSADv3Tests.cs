@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using RPGMakerDecrypter.Decrypter;
+using RPGMakerDecrypter.RGSSAD;
 
 namespace RPGMakerDecrypter.Tests
 {

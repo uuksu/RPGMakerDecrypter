@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using RPGMakerDecrypter.Decrypter.Exceptions;
+using RPGMakerDecrypter.RGSSAD.Exceptions;
 
-namespace RPGMakerDecrypter.Decrypter
+namespace RPGMakerDecrypter.RGSSAD
 {
     /// <summary>
     /// Represents RGSSAD format used in RPG Maker XP and VX.

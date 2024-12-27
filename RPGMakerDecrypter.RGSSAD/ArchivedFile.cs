@@ -1,4 +1,4 @@
-﻿namespace RPGMakerDecrypter.Decrypter
+﻿namespace RPGMakerDecrypter.RGSSAD
 {
     public class ArchivedFile
     {

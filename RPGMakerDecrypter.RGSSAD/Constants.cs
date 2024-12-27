@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace RPGMakerDecrypter.Decrypter
+namespace RPGMakerDecrypter.RGSSAD
 {
     public class Constants
     {

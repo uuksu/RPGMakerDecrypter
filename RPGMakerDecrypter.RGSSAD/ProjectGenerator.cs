@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace RPGMakerDecrypter.Decrypter
+namespace RPGMakerDecrypter.RGSSAD
 {
     public static class ProjectGenerator
     {

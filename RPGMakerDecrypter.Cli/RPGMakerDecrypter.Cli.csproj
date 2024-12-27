@@ -18,6 +18,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\RPGMakerDecrypter.Common\RPGMakerDecrypter.Common.csproj" />
+    <ProjectReference Include="..\RPGMakerDecrypter.MVMZ\RPGMakerDecrypter.MVMZ.csproj" />
     <ProjectReference Include="..\RPGMakerDecrypter.RGSSAD\RPGMakerDecrypter.RGSSAD.csproj" />
   </ItemGroup>
   <ItemGroup>
