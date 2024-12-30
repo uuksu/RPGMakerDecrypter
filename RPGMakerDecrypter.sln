@@ -14,13 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 		Resources\icon_256x256.pdn = Resources\icon_256x256.pdn
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{8682D407-DB4A-4955-970C-3464D694E3CC}"
-	ProjectSection(SolutionItems) = preProject
-		Deploy\7za-license.txt = Deploy\7za-license.txt
-		Deploy\7za.exe = Deploy\7za.exe
-		Deploy\deploy.bat = Deploy\deploy.bat
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMakerDecrypter.Common", "RPGMakerDecrypter.Common\RPGMakerDecrypter.Common.csproj", "{41DB3BF6-A576-4D78-8E77-89A906C9A49A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGMakerDecrypter.MVMZ", "RPGMakerDecrypter.MVMZ\RPGMakerDecrypter.MVMZ.csproj", "{9AE7DB4F-7F8F-4A25-B680-6BE6AF385286}"

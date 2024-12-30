@@ -11,7 +11,6 @@ jobs:
     env:
       BUILD_CONFIG: 'Release'
       CLI_PROJECT: 'RPGMakerDecrypter.Cli/RPGMakerDecrypter.Cli.csproj'
-      GUI_PROJECT: 'RPGMakerDecrypter.Gui/RPGMakerDecrypter.Gui.csproj'
 
     runs-on: windows-latest
 
@@ -27,7 +26,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
         
     - name: Restore dependencies
       run: dotnet restore
@@ -41,10 +40,7 @@ jobs:
     - name: Publish Windows CLI
       run: dotnet publish $Env:CLI_PROJECT --configuration $Env:BUILD_CONFIG -r win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true -p:TrimMode=Link --self-contained true --output $Env:GITHUB_WORKSPACE
           
-    - name: Publish Windows GUI
-      run: dotnet publish $Env:GUI_PROJECT --configuration $Env:BUILD_CONFIG -r win-x64 -p:PublishSingleFile=true --self-contained true --output $Env:GITHUB_WORKSPACE
-      
     - uses: ncipollo/release-action@v1.12.0
       with:
         bodyFile: CHANGELOG.MD
-        artifacts: "RPGMakerDecrypter-cli,RPGMakerDecrypter-cli.exe,RPGMakerDecrypter.exe"
+        artifacts: "RPGMakerDecrypter-cli,RPGMakerDecrypter-cli.exe"

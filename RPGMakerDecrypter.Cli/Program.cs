@@ -2,6 +2,7 @@
 using System.Linq;
 using CommandLine;
 using RPGMakerDecrypter.Cli.Exceptions;
+using RPGMakerDecrypter.Common;
 using RPGMakerDecrypter.MVMZ;
 using RPGMakerDecrypter.RGSSAD;
 
@@ -13,23 +14,23 @@ namespace RPGMakerDecrypter.Cli
 
         static void Main(string[] args)
         {
-            var parsedResult = Parser.Default.ParseArguments<CommandLineOptions>(args);
-            _commandLineOptions = parsedResult.Value;
-
-            if (parsedResult.Errors.Any())
-            {
-                Environment.Exit(1);
-            }
-
-            var version = RGSSAD.RGSSAD.GetRPGMakerVersion(_commandLineOptions.InputPath);
-            if (version == RPGMakerVersion.Unknown)
-            {
-                var mvMzVersionFinder = new RPGMakerVersionFinder();
-                version = mvMzVersionFinder.FindVersion(_commandLineOptions.InputPath);
-            }
-
             try
             {
+                var parsedResult = Parser.Default.ParseArguments<CommandLineOptions>(args);
+                _commandLineOptions = parsedResult.Value;
+
+                if (parsedResult.Errors.Any())
+                {
+                    Environment.Exit(1);
+                }
+                
+                var version = RGSSAD.RGSSAD.GetRPGMakerVersion(_commandLineOptions.InputPath);
+                if (version == RPGMakerVersion.Unknown)
+                {
+                    var mvMzVersionFinder = new RPGMakerVersionFinder();
+                    version = mvMzVersionFinder.FindVersion(_commandLineOptions.InputPath);
+                }
+                
                 switch (version)
                 {
                     case RPGMakerVersion.Xp:
@@ -53,6 +54,14 @@ namespace RPGMakerDecrypter.Cli
             } catch (InvalidUsageException ex)
             {
                 Console.WriteLine(ex.Message);
+                Environment.Exit(1);
+            }
+            catch (Exception ex)
+            {
+                var logFilePath = ExceptionLogger.LogException(ex);
+                Console.WriteLine("Unexpected error happened while trying to extract the archive.");
+                Console.WriteLine($"Error log has been written to '{logFilePath}'");
+                Console.WriteLine("Please create a issue and include the log contents there: https://github.com/uuksu/RPGMakerDecrypter/issues");
                 Environment.Exit(1);
             }
         }

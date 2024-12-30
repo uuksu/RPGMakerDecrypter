@@ -15,7 +15,7 @@ A clear and concise description of what the problem is. Include possible error m
 
 **Details (please complete the following information):**
  - OS: [e.g. Windows/MacOs/Linux]
- - RPGMakerDecrypter version: [CLI/GUI]
+ - RPGMakerDecrypter version: [v.3.x.x]
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.

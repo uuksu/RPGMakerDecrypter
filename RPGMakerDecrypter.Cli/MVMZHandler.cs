@@ -77,14 +77,6 @@ namespace RPGMakerDecrypter.Cli
                 Console.WriteLine(ex.Message);
                 Environment.Exit(1);
             }
-            catch (Exception ex)
-            {
-                var logFilePath = ExceptionLogger.LogException(ex);
-                Console.WriteLine("Unexpected error happened while trying to extract the archive.");
-                Console.WriteLine($"Error log has been written to '{logFilePath}'");
-                Console.WriteLine("Please create a issue and include the log contents there: https://github.com/uuksu/RPGMakerDecrypter/issues");
-                Environment.Exit(1);
-            }
         }   
     }
 }

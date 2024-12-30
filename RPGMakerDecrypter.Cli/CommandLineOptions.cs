@@ -4,7 +4,7 @@ namespace RPGMakerDecrypter.Cli
 {
     public class CommandLineOptions
     {
-        [Value(0, Required = true, HelpText = "Path to the .rgssad, .rgss2a or .rgss3a file or to MV and MZ directory.")]
+        [Value(0, Required = true, HelpText = "Path to the .rgssad, .rgss2a or .rgss3a file or to MV and MZ deployment directory.")]
         public string InputPath { get; set; }
 
         [Option('o', "output", Required = false, HelpText = "Optional output directory path. Required if --reconstruct-project is set to true and input path is a MV or MZ directory.")]
