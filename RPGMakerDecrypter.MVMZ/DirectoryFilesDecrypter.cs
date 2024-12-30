@@ -4,10 +4,18 @@ using System.Linq;
 
 namespace RPGMakerDecrypter.MVMZ
 {
-    public abstract class DirectoryFilesDecryptor
+    public abstract class DirectoryFilesDecrypter
     {
-        private readonly FileDecryptor _fileDecryptor = new FileDecryptor();
+        private readonly FileDecrypter _fileDecrypter = new FileDecrypter();
         
+        /// <summary>
+        /// Decrypts files in a directory based on the provided key and file extension mappings.
+        /// </summary>
+        /// <param name="key">The encryption key.</param>
+        /// <param name="inputPath">The path to the directory containing the encrypted files.</param>
+        /// <param name="fileExtensionMaps">A dictionary mapping encrypted file extensions to their original extensions.</param>
+        /// <param name="deleteEncrypted">Whether to delete the original encrypted files after decryption.</param>
+        /// <param name="overwrite">Whether to overwrite existing decrypted files.</param>
         protected void Decrypt(byte[] key, string inputPath, Dictionary<string, string> fileExtensionMaps,
             bool deleteEncrypted, bool overwrite)
         {
@@ -34,7 +42,7 @@ namespace RPGMakerDecrypter.MVMZ
                     continue;
                 }
                 
-                var decryptedFile = _fileDecryptor.Decrypt(key, encryptedFile.FullName);
+                var decryptedFile = _fileDecrypter.Decrypt(key, encryptedFile.FullName);
                 
                 File.WriteAllBytes(targetFilePath, decryptedFile);
 

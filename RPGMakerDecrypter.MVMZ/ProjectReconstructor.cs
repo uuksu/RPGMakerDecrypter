@@ -1,10 +1,10 @@
-using System;
 using System.IO;
 
 namespace RPGMakerDecrypter.MVMZ
 {
     public abstract class ProjectReconstructor
     {
+        // Directories that should exist in the project directory
         private readonly string[] _directories = {
             "audio",
             "css",
@@ -17,6 +17,7 @@ namespace RPGMakerDecrypter.MVMZ
             "movies"
         };
 
+        // Files that should exist in the project directory
         private readonly string[] _files =
         {
             "index.html",
@@ -25,7 +26,7 @@ namespace RPGMakerDecrypter.MVMZ
 
         protected abstract void CreateProjectFile(string outputPath);
         
-        public virtual void Reconstruct(string inputPath, string outputPath)
+        public virtual void Reconstruct(string deploymentPath, string outputPath)
         {
             if (Directory.Exists(outputPath))
             {
@@ -35,12 +36,12 @@ namespace RPGMakerDecrypter.MVMZ
 
             foreach (var directory in _directories)
             {
-                CopyDirectory(Path.Combine(inputPath, directory), Path.Combine(outputPath, directory));
+                CopyDirectory(Path.Combine(deploymentPath, directory), Path.Combine(outputPath, directory));
             }
             
             foreach (var file in _files)
             {
-                File.Copy(Path.Combine(inputPath, file), Path.Combine(outputPath, file));
+                File.Copy(Path.Combine(deploymentPath, file), Path.Combine(outputPath, file));
             }
             
             CreateProjectFile(outputPath);

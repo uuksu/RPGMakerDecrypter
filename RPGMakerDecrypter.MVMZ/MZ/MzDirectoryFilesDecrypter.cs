@@ -1,6 +1,6 @@
 namespace RPGMakerDecrypter.MVMZ.MZ
 {
-    public class MZDirectoryFilesDecryptor : DirectoryFilesDecryptor
+    public class MzDirectoryFilesDecrypter : DirectoryFilesDecrypter
     {
         public void DecryptFiles(byte[] key, string inputPath, bool deleteEncrypted, bool overwrite)
         {

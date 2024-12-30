@@ -57,14 +57,14 @@ namespace RPGMakerDecrypter.Cli
                 switch (version)
                 {
                     case RPGMakerVersion.MV:
-                        new MVDirectoryFilesDecryptor().DecryptFiles(
+                        new MvDirectoryFilesDecrypter().DecryptFiles(
                             encryptionKey, 
                             workingDirectoryPath,
                             deleteEncrypted,
                             commandLineOptions.Overwrite);
                         break;
                     case RPGMakerVersion.MZ:
-                        new MZDirectoryFilesDecryptor().DecryptFiles(
+                        new MzDirectoryFilesDecrypter().DecryptFiles(
                             encryptionKey, 
                             workingDirectoryPath,
                             deleteEncrypted,

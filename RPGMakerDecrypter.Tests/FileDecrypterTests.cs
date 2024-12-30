@@ -4,7 +4,7 @@ using RPGMakerDecrypter.MVMZ;
 
 namespace RPGMakerDecrypter.Tests;
 
-public class FileDecryptorTests
+public class FileDecrypterTests
 {
     [Test]
     public void FilesDecryptsCorrectly()
@@ -17,7 +17,7 @@ public class FileDecryptorTests
             130, 124, 203, 14, 234, 138, 112, 108, 76, 52, 161, 104, 145, 248, 78, 123
         ];
         
-        var fileDecryptor = new FileDecryptor();
+        var fileDecryptor = new FileDecrypter();
         
         var imageBytes = fileDecryptor.Decrypt(key, Path.Combine(FileHelpers.TempDirectoryPath, "Image"));
         var audioOrbisBytes = fileDecryptor.Decrypt(key, Path.Combine(FileHelpers.TempDirectoryPath, "AudioOrbis"));

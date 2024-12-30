@@ -11,9 +11,9 @@
     <Title>RPG Maker Decrypter</Title>
 	<AssemblyTitle>RPG Maker Decrypter</AssemblyTitle>
     <Description>Tool for decrypting RPG Maker XP, VX and VX Ace RGSSAD archives.</Description>
-    <Copyright>Mikko Uuksulainen © 2015-2023</Copyright>
+    <Copyright>Mikko Uuksulainen © 2015-2025</Copyright>
     <PackageProjectUrl>https://github.com/uuksu/RPGMakerDecrypter</PackageProjectUrl>
-	<Version>2.0.0</Version>
+	<Version>3.0.0</Version>
 	<MinVerMinimumMajorMinor>2.0</MinVerMinimumMajorMinor>
   </PropertyGroup>
   <ItemGroup>

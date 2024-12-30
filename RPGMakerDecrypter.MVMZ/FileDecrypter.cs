@@ -3,8 +3,14 @@ using System.Linq;
 
 namespace RPGMakerDecrypter.MVMZ
 {
-    public class FileDecryptor
+    public class FileDecrypter
     {
+        /// <summary>
+        /// Decrypts a encrypted RPG Maker file using the provided key and input path.
+        /// </summary>
+        /// <param name="key">The encryption key.</param>
+        /// <param name="inputPath">The path to the file to be decrypted.</param>
+        /// <returns>The decrypted file data as a byte array.</returns>
         public byte[] Decrypt(byte[] key, string inputPath)
         {
             // Skip first 16 bytes from beginning of file (aka. fake header)
