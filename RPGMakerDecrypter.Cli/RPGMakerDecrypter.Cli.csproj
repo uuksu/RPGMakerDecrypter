@@ -8,7 +8,7 @@
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>full</TrimMode>
   </PropertyGroup>
-  <PropertyGroup>§
+  <PropertyGroup>
     <ApplicationIcon>icon_256x256_cli.ico</ApplicationIcon>
     <Title>RPG Maker Decrypter</Title>
 	<AssemblyTitle>RPG Maker Decrypter</AssemblyTitle>
